@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puglia Bilance Capurso - Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        header .site-logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        header .site-description {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #004494;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #f1f1f1;
+        }
+
+        .hero img {
+            max-width: 90%;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            color: #0056b3;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        footer img {
+            max-width: 120px;
+            height: auto;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+
+        .popup {
+            background-color: #fff;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: slideDown 0.3s;
+        }
+
+        .popup h2 {
+            font-size: 1.4rem;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .popup p span {
+            font-weight: bold;
+        }
+
+        .popup .closed {
+            color: red;
+            font-weight: bold;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .popup .close-btn:hover {
+            background-color: #cc0000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="site-logo">
+            <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" alt="Logo Puglia Bilance Capurso">
+        </div>
+        <p class="site-description">Noleggio, Installazione e Manutenzione</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Prodotti</a></li>
+                <li><a href="#">Servizi</a></li>
+                <li><a href="#">Social</a></li>
+                <li><a href="#" onclick="openPopup()">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" alt="Bilance Professionali">
+        <h1>Bilance di Alta Qualità per Ogni Necessità</h1>
+        <p>Scopri la nostra gamma di bilance, progettate per soddisfare le esigenze di qualsiasi attività, dal negozio al grande magazzino.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" alt="Logo Footer">
+        <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <button class="close-btn" onclick="closePopup()">×</button>
+            <h2>Contatti</h2>
+            <p><span>Tel. Ufficio:</span> 080 4551512</p>
+            <p><span>Cell. Pasquale:</span> 347 5515120</p>
+            <p><span>Orari di apertura:</span></p>
+            <p>Lun - Ven: 8:30 - 19:00</p>
+            <p>Sabato: 8:30 - 13:00</p>
+            <p>Domenica: <span class="closed">Chiuso</span></p>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
