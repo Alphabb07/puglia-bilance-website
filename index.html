@@ -185,6 +185,72 @@
             color: red;
             font-weight: bold;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header .site-description {
+                font-size: 0.9rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .popup h2 {
+                font-size: 1.2rem;
+            }
+
+            .popup p {
+                font-size: 0.85rem;
+            }
+
+            .popup a {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            header .site-logo img {
+                max-width: 120px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero p {
+                font-size: 0.8rem;
+            }
+
+            footer img {
+                max-width: 100px;
+            }
+
+            footer p {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
