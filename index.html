@@ -127,11 +127,6 @@
             margin-bottom: 20px;
         }
 
-        .popup p {
-            margin: 5px 0;
-            font-size: 0.95rem;
-        }
-
         .popup .close-btn {
             position: absolute;
             top: 10px;
@@ -153,19 +148,32 @@
             background-color: #cc0000;
         }
 
+        .popup img {
+            max-width: 100px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .popup img:hover {
+            transform: scale(1.1);
+        }
+
         .popup a {
+            text-decoration: none;
+        }
+
+        .popup a.button {
             display: inline-block;
             padding: 10px 15px;
-            margin: 10px 0;
             background-color: #0056b3;
             color: #fff;
-            text-decoration: none;
             border-radius: 6px;
-            font-size: 0.9rem;
+            margin: 10px 0;
             transition: background 0.3s;
         }
 
-        .popup a:hover {
+        .popup a.button:hover {
             background-color: #004494;
         }
 
@@ -173,10 +181,9 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 20px 0;
         }
 
-        .popup .social-icons a img {
+        .popup .social-icons img {
             width: 40px;
             height: 40px;
         }
@@ -184,72 +191,6 @@
         .popup .closed {
             color: red;
             font-weight: bold;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            header .site-description {
-                font-size: 0.9rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin-bottom: 10px;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .popup h2 {
-                font-size: 1.2rem;
-            }
-
-            .popup p {
-                font-size: 0.85rem;
-            }
-
-            .popup a {
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 10px 15px;
-            }
-
-            header .site-logo img {
-                max-width: 120px;
-            }
-
-            nav ul {
-                gap: 10px;
-            }
-
-            .hero h1 {
-                font-size: 1.4rem;
-            }
-
-            .hero p {
-                font-size: 0.8rem;
-            }
-
-            footer img {
-                max-width: 100px;
-            }
-
-            footer p {
-                font-size: 0.75rem;
-            }
         }
     </style>
 </head>
@@ -267,6 +208,7 @@
                 <li><a href="#" onclick="openPopup()">Contatti</a></li>
                 <li><a href="#" onclick="openAssistancePopup()">Assistenza</a></li>
                 <li><a href="#" onclick="openSocialPopup()">Social</a></li>
+                <li><a href="#" onclick="openLocationPopup()">Sede</a></li>
             </ul>
         </nav>
     </header>
@@ -291,7 +233,8 @@
             <h2>Contatti</h2>
             <p><span>Tel. Ufficio:</span> 080 4551512</p>
             <p><span>Cell. Pasquale:</span> 347 5515120</p>
-            <p><span>Orari di apertura:</span></p>
+            <p><span>Email:</span> pugliabilance@libero.it</p>
+            <p>Orari di apertura:</p>
             <p>Lun - Ven: 8:30 - 19:00</p>
             <p>Sabato: 8:30 - 13:00</p>
             <p>Domenica: <span class="closed">Chiuso</span></p>
@@ -304,8 +247,8 @@
             <button class="close-btn" onclick="closeAssistancePopup()">×</button>
             <h2>Assistenza Tecnica</h2>
             <p>Richiedi il nostro supporto per verifiche periodiche o interventi tecnici.</p>
-            <a href="https://forms.gle/8s94dPMf2d4Djydj9" target="_blank">Richiedi Verifica Periodica</a>
-            <a href="https://forms.gle/PUjeJXWZB7PsswiEA" target="_blank">Richiedi Assistenza</a>
+            <a href="https://forms.gle/8s94dPMf2d4Djydj9" target="_blank" class="button">Richiedi Verifica Periodica</a>
+            <a href="https://forms.gle/PUjeJXWZB7PsswiEA" target="_blank" class="button">Richiedi Assistenza</a>
         </div>
     </div>
 
@@ -316,12 +259,23 @@
             <h2>Seguici sui Social</h2>
             <div class="social-icons">
                 <a href="https://www.instagram.com/pugliabilance/" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+                    <img src="https://img.icons8.com/ios-filled/50/instagram.png" alt="Instagram">
                 </a>
                 <a href="https://www.facebook.com/pugliabilancesrls" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/facebook.png" alt="Facebook">
+                    <img src="https://img.icons8.com/ios-filled/50/facebook.png" alt="Facebook">
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Popup Sede -->
+    <div class="popup-overlay" id="popupLocation">
+        <div class="popup">
+            <button class="close-btn" onclick="closeLocationPopup()">×</button>
+            <h2>La Nostra Sede</h2>
+            <a href="https://www.google.it/maps/place/Puglia+Bilance/@41.0391411,16.9150603,17z/data=!3m1!4b1!4m6!3m5!1s0x1347c1e9ba5493d7:0xae9b51eae504782c!8m2!3d41.0391411!4d16.9176352!16s%2Fg%2F11h1jqbhvl?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/google-maps.png" alt="Google Maps">
+            </a>
         </div>
     </div>
 
@@ -348,6 +302,14 @@
 
         function closeSocialPopup() {
             document.getElementById('popupSocial').style.display = 'none';
+        }
+
+        function openLocationPopup() {
+            document.getElementById('popupLocation').style.display = 'block';
+        }
+
+        function closeLocationPopup() {
+            document.getElementById('popupLocation').style.display = 'none';
         }
     </script>
 </body>
