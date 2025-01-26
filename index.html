@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titolo e Meta Description -->
     <title>Puglia Bilance Capurso - Homepage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Puglia Bilance Capurso: noleggio, installazione e manutenzione di bilance professionali di alta qualità. Scopri i nostri prodotti e servizi." />
+
+    <!-- Open Graph Meta Tags (per anteprime social) -->
+    <meta property="og:title" content="Puglia Bilance Capurso - Homepage" />
+    <meta property="og:description" content="Noleggio, installazione e manutenzione di bilance professionali in Puglia." />
+    <meta property="og:image" content="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" />
+    <meta property="og:url" content="https://www.pugliabilance.it" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
     <style>
+        /* ---------- BASE STYLES ---------- */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -14,23 +32,26 @@
             background-color: #f9f9f9;
             color: #333;
         }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
+        /* ---------- HEADER ---------- */
         header {
             background-color: #0056b3;
             color: #fff;
             padding: 15px 20px;
             text-align: center;
         }
-
         header .site-logo img {
             max-width: 150px;
+            height: auto;
         }
-
         header .site-description {
             font-size: 1rem;
             margin-top: 5px;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
@@ -39,11 +60,9 @@
             justify-content: center;
             gap: 15px;
         }
-
         nav ul li {
             display: inline-block;
         }
-
         nav ul li a {
             color: #fff;
             padding: 8px 12px;
@@ -52,63 +71,84 @@
             font-size: 0.9rem;
             transition: background 0.3s;
         }
-
         nav ul li a:hover {
             background-color: #004494;
         }
 
+        /* ---------- HERO ---------- */
         .hero {
             text-align: center;
             padding: 30px 20px;
             background-color: #f1f1f1;
         }
-
         .hero img {
             max-width: 90%;
             border-radius: 6px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-
         .hero h1 {
             font-size: 2rem;
             color: #0056b3;
             margin: 15px 0;
         }
-
         .hero p {
             font-size: 1rem;
             line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+        .hero .cta-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .hero .cta-button:hover {
+            background-color: #004494;
         }
 
+        /* ---------- FOOTER ---------- */
         footer {
             background-color: #0056b3;
             color: #fff;
             padding: 20px 10px;
             text-align: center;
         }
-
         footer img {
             max-width: 120px;
+            height: auto;
         }
-
         footer p {
             font-size: 0.85rem;
             margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        /* Link utili nel footer */
+        .footer-links {
+            margin: 10px 0;
+        }
+        .footer-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 0.85rem;
+            text-decoration: underline;
         }
 
-        /* Popup Styles */
+        /* ---------- POPUP STYLES ---------- */
         .popup-overlay {
             display: none;
             position: fixed;
-            top: 0;
+            top: 0; 
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
         }
-
         .popup {
             background-color: #fff;
             border-radius: 12px;
@@ -120,13 +160,11 @@
             text-align: center;
             position: relative;
         }
-
         .popup h2 {
             font-size: 1.4rem;
             color: #0056b3;
             margin-bottom: 20px;
         }
-
         .popup .close-btn {
             position: absolute;
             top: 10px;
@@ -143,26 +181,24 @@
             text-align: center;
             transition: background 0.3s;
         }
-
         .popup .close-btn:hover {
             background-color: #cc0000;
         }
-
+        .popup .close-btn:focus {
+            outline: 2px solid #cc0000;
+        }
         .popup img {
             max-width: 100px;
             margin: 10px 0;
             cursor: pointer;
             transition: transform 0.2s;
         }
-
         .popup img:hover {
             transform: scale(1.1);
         }
-
         .popup a {
             text-decoration: none;
         }
-
         .popup a.button {
             display: inline-block;
             padding: 10px 15px;
@@ -172,69 +208,89 @@
             margin: 10px 0;
             transition: background 0.3s;
         }
-
         .popup a.button:hover {
             background-color: #004494;
         }
-
         .popup .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
         }
-
         .popup .social-icons img {
             width: 40px;
             height: 40px;
         }
-
         .popup .closed {
             color: red;
             font-weight: bold;
         }
 
-        /* Mobile Optimization */
+        /* ---------- FORM CONTATTO (ESEMPIO) ---------- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+        .contact-form label {
+            text-align: left;
+            font-weight: 500;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #004494;
+        }
+
+        /* ---------- MEDIA QUERIES (RESPONSIVE) ---------- */
         @media screen and (max-width: 768px) {
             header .site-description {
                 font-size: 0.9rem;
             }
-
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 10px;
             }
-
             nav ul li a {
                 padding: 6px 10px;
                 font-size: 0.8rem;
             }
-
             .hero h1 {
                 font-size: 1.8rem;
             }
-
             .hero p {
                 font-size: 0.9rem;
             }
-
             footer p {
                 font-size: 0.8rem;
             }
-
             .popup h2 {
                 font-size: 1.2rem;
             }
-
             .popup a.button {
                 font-size: 0.85rem;
                 padding: 8px 12px;
             }
-
             .popup img {
                 max-width: 80px;
             }
-
             .popup .social-icons img {
                 width: 35px;
                 height: 35px;
@@ -243,10 +299,38 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- SCHEMA.ORG (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Puglia Bilance Capurso",
+      "image": "https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Casamassima zona industriale km 12.300",
+        "addressLocality": "Capurso",
+        "addressRegion": "BA",
+        "postalCode": "70010",
+        "addressCountry": "IT"
+      },
+      "url": "https://www.pugliabilance.it",
+      "telephone": "+39 080 4551512",
+      "openingHours": [
+        "Lu-Ven 08:30-19:00",
+        "Sa 08:30-13:00"
+      ]
+    }
+    </script>
+
+    <!-- HEADER -->
     <header>
         <div class="site-logo">
-            <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" alt="Logo Puglia Bilance Capurso">
+            <img 
+                src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" 
+                alt="Logo Puglia Bilance Capurso"
+                loading="lazy"
+            />
         </div>
         <p class="site-description">Noleggio, Installazione e Manutenzione</p>
         <nav>
@@ -261,104 +345,198 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" alt="Bilance Professionali">
+        <img 
+            src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" 
+            alt="Bilance Professionali" 
+            loading="lazy"
+        />
         <h1>Bilance di Alta Qualità per Ogni Necessità</h1>
-        <p>Scopri la nostra gamma di bilance, progettate per soddisfare le esigenze di qualsiasi attività, dal negozio al grande magazzino.</p>
+        <p>
+            Scopri la nostra gamma di bilance, progettate per soddisfare le esigenze 
+            di qualsiasi attività, dal negozio al grande magazzino.
+        </p>
+        <!-- Esempio di CTA -->
+        <a href="catalogo.html" class="cta-button">Scopri i nostri Prodotti</a>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <img src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" alt="Logo Footer">
+        <img 
+            src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" 
+            alt="Logo Footer"
+            loading="lazy"
+        />
         <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+        <p><strong>Indirizzo:</strong> Via Casamassima Zona Industriale km 12.300, Capurso (BA)</p>
+        <p>
+            <strong>Telefono:</strong> 
+            <a href="tel:+390804551512" style="color: #fff;">080 4551512</a>
+        </p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+        </div>
     </footer>
 
-    <!-- Popup Contatti -->
+    <!-- POPUP CONTATTI -->
     <div class="popup-overlay" id="popupOverlay">
-        <div class="popup">
-            <button class="close-btn" onclick="closePopup()">×</button>
+        <div class="popup" role="dialog" aria-label="Popup Contatti">
+            <button class="close-btn" onclick="closePopup()" aria-label="Chiudi popup contatti">×</button>
             <h2>Contatti</h2>
-            <p><span>Tel. Ufficio:</span> 080 4551512</p>
-            <p><span>Cell. Pasquale:</span> 347 5515120</p>
-            <p><span>Email:</span> pugliabilance@libero.it</p>
+            <p><span>Tel. Ufficio:</span> <a href="tel:+390804551512">080 4551512</a></p>
+            <p><span>Cell. Pasquale:</span> <a href="tel:+393475515120">347 5515120</a></p>
+            <p><span>Email:</span> <a href="mailto:pugliabilance@libero.it">pugliabilance@libero.it</a></p>
             <p>Orari di apertura:</p>
             <p>Lun - Ven: 8:30 - 19:00</p>
             <p>Sabato: 8:30 - 13:00</p>
             <p>Domenica: <span class="closed">Chiuso</span></p>
+            
+            <!-- Esempio form contatto rapido direttamente nel popup -->
+            <div class="contact-form">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" />
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="La tua email" />
+
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" name="messaggio" rows="4" placeholder="Scrivi qui..."></textarea>
+
+                <!-- Non modifichiamo onclick -->
+                <button type="button" onclick="alert('Inviato (esempio)')">Invia</button>
+            </div>
         </div>
     </div>
 
-    <!-- Popup Assistenza -->
+    <!-- POPUP ASSISTENZA -->
     <div class="popup-overlay" id="popupAssistance">
-        <div class="popup">
-            <button class="close-btn" onclick="closeAssistancePopup()">×</button>
+        <div class="popup" role="dialog" aria-label="Popup Assistenza">
+            <button class="close-btn" onclick="closeAssistancePopup()" aria-label="Chiudi popup assistenza">×</button>
             <h2>Assistenza Tecnica</h2>
             <p>Richiedi il nostro supporto per verifiche periodiche o interventi tecnici.</p>
+            <!-- Link a Google Forms (o altro) -->
             <a href="https://forms.gle/8s94dPMf2d4Djydj9" target="_blank" class="button">Richiedi Verifica Periodica</a>
             <a href="https://forms.gle/PUjeJXWZB7PsswiEA" target="_blank" class="button">Richiedi Assistenza</a>
         </div>
     </div>
 
-    <!-- Popup Social -->
+    <!-- POPUP SOCIAL -->
     <div class="popup-overlay" id="popupSocial">
-        <div class="popup">
-            <button class="close-btn" onclick="closeSocialPopup()">×</button>
+        <div class="popup" role="dialog" aria-label="Popup Social">
+            <button class="close-btn" onclick="closeSocialPopup()" aria-label="Chiudi popup social">×</button>
             <h2>Seguici sui Social</h2>
             <div class="social-icons">
                 <a href="https://www.instagram.com/pugliabilance/" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+                    <img 
+                        src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" 
+                        alt="Instagram"
+                        loading="lazy"
+                    />
                 </a>
                 <a href="https://www.facebook.com/pugliabilancesrls" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/facebook.png" alt="Facebook">
+                    <img 
+                        src="https://img.icons8.com/ios-filled/50/000000/facebook.png" 
+                        alt="Facebook"
+                        loading="lazy"
+                    />
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Popup Sede -->
+    <!-- POPUP SEDE -->
     <div class="popup-overlay" id="popupLocation">
-        <div class="popup">
-            <button class="close-btn" onclick="closeLocationPopup()">×</button>
+        <div class="popup" role="dialog" aria-label="Popup Sede">
+            <button class="close-btn" onclick="closeLocationPopup()" aria-label="Chiudi popup sede">×</button>
             <h2>La Nostra Sede</h2>
-            <a href="https://www.google.it/maps/place/Puglia+Bilance/@41.0391411,16.9150603,17z/data=!3m1!4b1!4m6!3m5!1s0x1347c1e9ba5493d7:0xae9b51eae504782c!8m2!3d41.0391411!4d16.9176352!16s%2Fg%2F11h1jqbhvl?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/google-maps.png" alt="Google Maps">
+            <a 
+                href="https://www.google.it/maps/place/Puglia+Bilance/@41.0391411,16.9150603,17z/data=!3m1!4b1!4m6!3m5!1s0x1347c1e9ba5493d7:0xae9b51eae504782c!8m2!3d41.0391411!4d16.9176352!16s%2Fg%2F11h1jqbhvl?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" 
+                target="_blank"
+            >
+                <img 
+                    src="https://img.icons8.com/ios-filled/50/000000/google-maps.png" 
+                    alt="Google Maps"
+                    loading="lazy"
+                />
             </a>
         </div>
     </div>
 
+    <!-- SCRIPT ORIGINALE -->
     <script>
         function openPopup() {
             document.getElementById('popupOverlay').style.display = 'block';
         }
-
         function closePopup() {
             document.getElementById('popupOverlay').style.display = 'none';
         }
-
         function openAssistancePopup() {
             document.getElementById('popupAssistance').style.display = 'block';
         }
-
         function closeAssistancePopup() {
             document.getElementById('popupAssistance').style.display = 'none';
         }
-
         function openSocialPopup() {
             document.getElementById('popupSocial').style.display = 'block';
         }
-
         function closeSocialPopup() {
             document.getElementById('popupSocial').style.display = 'none';
         }
-
         function openLocationPopup() {
             document.getElementById('popupLocation').style.display = 'block';
         }
-
         function closeLocationPopup() {
             document.getElementById('popupLocation').style.display = 'none';
         }
+    </script>
+
+    <!-- SCRIPT AGGIUNTIVO per invio mail reale -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Troviamo il pulsante "Invia" del popup contatti
+      const inviaButton = document.querySelector('.contact-form button');
+
+      if (inviaButton) {
+        inviaButton.addEventListener('click', function() {
+          // L'utente vedrà ancora l'alert('Inviato (esempio)')
+          // Poi, dopo mezzo secondo, parte l'invio "vero" via AJAX
+          setTimeout(() => {  // per non sovrapporre l'alert
+            invioInBackground();
+          }, 500);
+        });
+      }
+
+      async function invioInBackground() {
+        const nome      = document.getElementById('nome').value.trim();
+        const email     = document.getElementById('email').value.trim();
+        const messaggio = document.getElementById('messaggio').value.trim();
+
+        // Controllo che siano pieni
+        if (!nome || !email || !messaggio) {
+          console.log('Alcuni campi non sono compilati, mail non inviata.');
+          return;
+        }
+
+        try {
+          const response = await fetch('backend.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, messaggio })
+          });
+          const data = await response.json();
+
+          if (response.ok) {
+            console.log('Messaggio inviato con successo:', data.message);
+          } else {
+            console.error('Errore durante l\'invio:', data.message);
+          }
+        } catch (err) {
+          console.error('Errore di rete o server:', err);
+        }
+      }
+    });
     </script>
 </body>
 </html>
