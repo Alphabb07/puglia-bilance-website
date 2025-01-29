@@ -101,12 +101,12 @@
       margin: 5px 0;
     }
 
-    /* Testo di credito nel footer, più visibile */
+    /* Testo di credito nel footer (se serve) */
     .credit-text {
-      font-size: 1rem;  /* reso un po' più grande */
-      color: #fff;      /* forza il bianco */
-      margin-top: 10px; /* distanziato dal resto */
-      opacity: 0.9;     /* leggero effetto trasparenza, se vuoi */
+      font-size: 0.8rem;
+      color: #fff;
+      margin-top: 10px;
+      opacity: 0.9;
     }
 
     /* Popup Styles */
@@ -200,17 +200,21 @@
       height: 40px;
     }
 
-    /* Classi per stato aperto/chiusura/chiuso */
+    /* Classi per stato */
     .open {
-      color: green;
+      color: green;        /* Aperto classico in verde */
       font-weight: bold;
     }
-    .closing {
-      color: orange;
+    .brown {
+      color: #8B4513;      /* Marroncino */
+      font-weight: bold;
+    }
+    .orange {
+      color: orange;       /* Arancione */
       font-weight: bold;
     }
     .closed {
-      color: red;
+      color: red;          /* Rosso */
       font-weight: bold;
     }
 
@@ -306,10 +310,8 @@
       alt="Logo Footer"
     />
     <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
-    <!-- Testo in piccolo per i credits (ma ben visibile) -->
-    <p class="credit-text">
-      Sito prodotto da <strong>Antonio Abbinante</strong>
-    </p>
+    <!-- Se desideri la dicitura credits -->
+    <!-- <p class="credit-text">Sito prodotto da <strong>Antonio Abbinante</strong></p> -->
   </footer>
 
   <!-- Popup Contatti -->
@@ -384,7 +386,7 @@
     <div class="popup">
       <button class="close-btn" onclick="closeLocationPopup()">×</button>
       <h2>La Nostra Sede</h2>
-      <!-- Stato “Sede Capurso” dinamico -->
+      <!-- Stato “Sede Capurso” dinamico con i nuovi orari -->
       <p>Sede Capurso: <span id="sedeStatus" class="closed">Caricamento...</span></p>
 
       <a
@@ -401,73 +403,64 @@
 
   <script>
     /********************************************************************
-     * Funzione per calcolare la fascia oraria e aggiornare lo stato
-     * “Sede Capurso: Aperto / In chiusura / Chiuso”.
-     * L’esempio usa l’orario locale del browser.
-     *
-     * Per un orario sincronizzato, usa un’API esterna come:
-     *   https://worldtimeapi.org/api/timezone/Europe/Rome
-     * e poi estrai la data/ora dalla risposta.
+     * Funzione per aggiornare lo stato della Sede Capurso in base
+     * agli orari richiesti:
+     * 
+     * - 6:30 - 8:30   => Aperto (Magazzino)  [marroncino]
+     * - 8:31 - 13:00  => Aperto              [verde]
+     * - 13:01 - 14:14 => Momentaneamente chiuso,
+     *                   apriremo alle 14:15  [arancione]
+     * - 14:15 - 19:00 => Aperto              [verde]
+     * - 19:00 - 6:29  => Chiuso             [rosso]
+     * 
+     * Usiamo i decimali: 6.5 (6:30), 8.5 (8:30), 13, 14.25 (14:15), ecc.
      ********************************************************************/
     function updateSedeCapursoStatus() {
       let now = new Date();
-      // Se vuoi forzare la timezone "Europe/Rome" (approssimazione):
-      // let now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Rome" }));
 
-      let day = now.getDay(); // 0=Dom, 1=Lun, ... 6=Sab
+      // Trasformo l’ora in decimale
       let hour = now.getHours();
       let minute = now.getMinutes();
-      let timeDecimal = hour + minute / 60;
+      let timeDecimal = hour + minute/60; // es: 6:30 = 6.5
 
-      // Orari Lun-Ven
-      const openWeekday = 8.5;       // 8:30
-      const closeWeekday = 19.0;     // 19:00
-      const closingWeekday = 18.75;  // 18:45
-
-      // Orari Sabato
-      const openSaturday = 8.5;      // 8:30
-      const closeSaturday = 13.0;    // 13:00
-      const closingSaturday = 12.75; // 12:45
-
+      // Elemento HTML da aggiornare
       const statusEl = document.getElementById("sedeStatus");
       if (!statusEl) return;
 
-      // Domenica
-      if (day === 0) {
+      // Intervallo notturno o dopo le 19
+      // (dalle 19:00 fino alle 6:29)
+      // => Chiuso (rosso)
+      if (timeDecimal >= 19 || timeDecimal < 6.5) {
         statusEl.textContent = "Chiuso";
         statusEl.className = "closed";
         return;
       }
 
-      // Lunedì-Venerdì
-      if (day >= 1 && day <= 5) {
-        if (timeDecimal < openWeekday || timeDecimal >= closeWeekday) {
-          statusEl.textContent = "Chiuso";
-          statusEl.className = "closed";
-        } else if (timeDecimal >= closingWeekday) {
-          statusEl.textContent = "In chiusura";
-          statusEl.className = "closing";
-        } else {
-          statusEl.textContent = "Aperto";
-          statusEl.className = "open";
-        }
+      // 6:30 - 8:30 => Aperto (Magazzino), marroncino
+      if (timeDecimal >= 6.5 && timeDecimal < 8.5) {
+        statusEl.textContent = "Aperto (Magazzino)";
+        statusEl.className = "brown";
         return;
       }
 
-      // Sabato
-      if (day === 6) {
-        if (timeDecimal < openSaturday || timeDecimal >= closeSaturday) {
-          statusEl.textContent = "Chiuso";
-          statusEl.className = "closed";
-        } else if (timeDecimal >= closingSaturday) {
-          statusEl.textContent = "In chiusura";
-          statusEl.className = "closing";
-        } else {
-          statusEl.textContent = "Aperto";
-          statusEl.className = "open";
-        }
+      // 8:31 - 13:00 => Aperto (verde)
+      if (timeDecimal >= 8.5 && timeDecimal < 13) {
+        statusEl.textContent = "Aperto";
+        statusEl.className = "open";
         return;
       }
+
+      // 13:01 - 14:14 => Momentaneamente chiuso, apriremo alle 14:15 (arancione)
+      if (timeDecimal >= 13 && timeDecimal < 14.25) {
+        statusEl.textContent = "Momentaneamente chiuso, apriremo alle 14:15";
+        statusEl.className = "orange";
+        return;
+      }
+
+      // 14:15 - 19:00 => Aperto (verde)
+      // (se siamo arrivati qui, siamo oltre 14.25 e sotto 19)
+      statusEl.textContent = "Aperto";
+      statusEl.className = "open";
     }
 
     /* Funzioni di apertura/chiusura popup */
