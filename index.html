@@ -101,14 +101,6 @@
       margin: 5px 0;
     }
 
-    /* Testo di credito nel footer (se serve) */
-    .credit-text {
-      font-size: 0.8rem;
-      color: #fff;
-      margin-top: 10px;
-      opacity: 0.9;
-    }
-
     /* Popup Styles */
     .popup-overlay {
       display: none;
@@ -200,21 +192,17 @@
       height: 40px;
     }
 
-    /* Classi per stato */
+    /* Classi per stato e colori */
     .open {
-      color: green;        /* Aperto classico in verde */
+      color: green;           /* Aperto => verde */
       font-weight: bold;
     }
-    .brown {
-      color: #8B4513;      /* Marroncino */
-      font-weight: bold;
-    }
-    .orange {
-      color: orange;       /* Arancione */
+    .closing-light {
+      color: #FFB347;         /* In chiusura => arancione chiaro */
       font-weight: bold;
     }
     .closed {
-      color: red;          /* Rosso */
+      color: red;             /* Chiuso => rosso */
       font-weight: bold;
     }
 
@@ -310,8 +298,6 @@
       alt="Logo Footer"
     />
     <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
-    <!-- Se desideri la dicitura credits -->
-    <!-- <p class="credit-text">Sito prodotto da <strong>Antonio Abbinante</strong></p> -->
   </footer>
 
   <!-- Popup Contatti -->
@@ -323,8 +309,8 @@
       <p><span>Cell. Pasquale:</span> 347 5515120</p>
       <p><span>Email:</span> pugliabilance@libero.it</p>
       <p>Orari di apertura:</p>
-      <p>Lun - Ven: 8:30 - 19:00</p>
-      <p>Sabato: 8:30 - 13:00</p>
+      <p>Lun - Ven: 6:30 - 13:00 / 14:30 - 18:30</p>
+      <p>Sab: 6:30 - 13:00</p>
       <p>Domenica: <span class="closed">Chiuso</span></p>
     </div>
   </div>
@@ -386,7 +372,7 @@
     <div class="popup">
       <button class="close-btn" onclick="closeLocationPopup()">×</button>
       <h2>La Nostra Sede</h2>
-      <!-- Stato “Sede Capurso” dinamico con i nuovi orari -->
+      <!-- Stato “Sede Capurso” dinamico con i nuovi orari (Sabato mezza giornata) -->
       <p>Sede Capurso: <span id="sedeStatus" class="closed">Caricamento...</span></p>
 
       <a
@@ -403,64 +389,108 @@
 
   <script>
     /********************************************************************
-     * Funzione per aggiornare lo stato della Sede Capurso in base
-     * agli orari richiesti:
-     * 
-     * - 6:30 - 8:30   => Aperto (Magazzino)  [marroncino]
-     * - 8:31 - 13:00  => Aperto              [verde]
-     * - 13:01 - 14:14 => Momentaneamente chiuso,
-     *                   apriremo alle 14:15  [arancione]
-     * - 14:15 - 19:00 => Aperto              [verde]
-     * - 19:00 - 6:29  => Chiuso             [rosso]
-     * 
-     * Usiamo i decimali: 6.5 (6:30), 8.5 (8:30), 13, 14.25 (14:15), ecc.
+     * Funzione per calcolare la fascia oraria e aggiornare lo stato
+     * “Sede Capurso: Aperto / In chiusura / Chiuso” con 30 min prima di ogni 
+     * chiusura, ma con la differenza che il Sabato è aperto solo la mattina.
+     *
+     * Lun - Ven: 
+     *   06:30 - 12:30 => Aperto
+     *   12:30 - 13:00 => In chiusura
+     *   13:00 - 14:30 => Chiuso (pausa)
+     *   14:30 - 18:00 => Aperto
+     *   18:00 - 18:30 => In chiusura
+     *   Altri orari => Chiuso
+     *
+     * Sabato:
+     *   06:30 - 12:30 => Aperto
+     *   12:30 - 13:00 => In chiusura
+     *   Altri orari => Chiuso
+     *
+     * Domenica: chiuso tutto il giorno
      ********************************************************************/
     function updateSedeCapursoStatus() {
       let now = new Date();
-
-      // Trasformo l’ora in decimale
+      let day = now.getDay();           // 0=Dom, 1=Lun, ... 6=Sab
       let hour = now.getHours();
       let minute = now.getMinutes();
-      let timeDecimal = hour + minute/60; // es: 6:30 = 6.5
+      let timeDecimal = hour + minute / 60; // es: 6.5
 
-      // Elemento HTML da aggiornare
       const statusEl = document.getElementById("sedeStatus");
       if (!statusEl) return;
 
-      // Intervallo notturno o dopo le 19
-      // (dalle 19:00 fino alle 6:29)
-      // => Chiuso (rosso)
-      if (timeDecimal >= 19 || timeDecimal < 6.5) {
+      // DOMENICA => chiuso
+      if (day === 0) {
+        statusEl.textContent = "Chiuso (Domenica)";
+        statusEl.className = "closed";
+        return;
+      }
+
+      // LUN - VEN => (day=1..5)
+      if (day >= 1 && day <= 5) {
+        // < 6.5 => chiuso
+        if (timeDecimal < 6.5) {
+          statusEl.textContent = "Chiuso";
+          statusEl.className = "closed";
+          return;
+        }
+        // 06:30 - 12:30 => Aperto
+        if (timeDecimal < 12.5) {
+          statusEl.textContent = "Aperto";
+          statusEl.className = "open";
+          return;
+        }
+        // 12:30 - 13:00 => In chiusura
+        if (timeDecimal < 13) {
+          statusEl.textContent = "In chiusura";
+          statusEl.className = "closing-light";
+          return;
+        }
+        // 13:00 - 14.5 => Pausa pranzo => Chiuso
+        if (timeDecimal < 14.5) {
+          statusEl.textContent = "Chiuso (pausa pranzo)";
+          statusEl.className = "closed";
+          return;
+        }
+        // 14:30 - 18:00 => Aperto
+        if (timeDecimal < 18) {
+          statusEl.textContent = "Aperto";
+          statusEl.className = "open";
+          return;
+        }
+        // 18:00 - 18:30 => In chiusura
+        if (timeDecimal < 18.5) {
+          statusEl.textContent = "In chiusura";
+          statusEl.className = "closing-light";
+          return;
+        }
+        // >= 18.5 => chiuso
         statusEl.textContent = "Chiuso";
         statusEl.className = "closed";
         return;
       }
 
-      // 6:30 - 8:30 => Aperto (Magazzino), marroncino
-      if (timeDecimal >= 6.5 && timeDecimal < 8.5) {
-        statusEl.textContent = "Aperto (Magazzino)";
-        statusEl.className = "brown";
+      // SABATO => (day=6)
+      // < 6.5 => chiuso
+      if (timeDecimal < 6.5) {
+        statusEl.textContent = "Chiuso";
+        statusEl.className = "closed";
         return;
       }
-
-      // 8:31 - 13:00 => Aperto (verde)
-      if (timeDecimal >= 8.5 && timeDecimal < 13) {
-        statusEl.textContent = "Aperto";
+      // 06:30 - 12:30 => Aperto
+      if (timeDecimal < 12.5) {
+        statusEl.textContent = "Aperto (Sabato mattina)";
         statusEl.className = "open";
         return;
       }
-
-      // 13:01 - 14:14 => Momentaneamente chiuso, apriremo alle 14:15 (arancione)
-      if (timeDecimal >= 13 && timeDecimal < 14.25) {
-        statusEl.textContent = "Momentaneamente chiuso, apriremo alle 14:15";
-        statusEl.className = "orange";
+      // 12:30 - 13:00 => In chiusura
+      if (timeDecimal < 13) {
+        statusEl.textContent = "In chiusura";
+        statusEl.className = "closing-light";
         return;
       }
-
-      // 14:15 - 19:00 => Aperto (verde)
-      // (se siamo arrivati qui, siamo oltre 14.25 e sotto 19)
-      statusEl.textContent = "Aperto";
-      statusEl.className = "open";
+      // Dopo le 13 => chiuso
+      statusEl.textContent = "Chiuso";
+      statusEl.className = "closed";
     }
 
     /* Funzioni di apertura/chiusura popup */
@@ -488,7 +518,7 @@
       document.getElementById("popupSocial").style.display = "none";
     }
 
-    /* Apertura popup sede: aggiorna stato “Sede Capurso” */
+    /* Apertura popup sede: richiama updateSedeCapursoStatus() */
     function openLocationPopup() {
       document.getElementById("popupLocation").style.display = "block";
       updateSedeCapursoStatus();
