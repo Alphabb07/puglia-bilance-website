@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport per design responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Title -->
+  <title>Catalogo Prodotti | Bilance Professionali - Puglia Bilance</title>
+
+  <!-- SEO: Meta Description -->
+  <meta 
+    name="description" 
+    content="Scopri il catalogo di bilance professionali Puglia Bilance Capurso: bilance da banco, pese a ponte e soluzioni industriali su misura. Servizio di noleggio, installazione e manutenzione in Puglia."
+  />
+  <!-- Meta Robots -->
+  <meta name="robots" content="index, follow" />
+  <!-- SEO: Meta Keywords -->
+  <meta 
+    name="keywords" 
+    content="catalogo bilance, bilance professionali, pese a ponte, bilance industriali, bilance da banco, puglia bilance capurso"
+  />
+
+  <!-- Open Graph per condivisione social -->
+  <meta property="og:title" content="Catalogo Prodotti | Bilance Professionali - Puglia Bilance" />
+  <meta property="og:description" content="Sfoglia il catalogo di bilance da banco, pese a ponte e bilance industriali di Puglia Bilance Capurso. Scopri le nostre soluzioni personalizzate." />
+  <meta property="og:image" content="https://www.tuosito.it/percorso/alla/immagine_catalogo.jpg" />
+  <meta property="og:url" content="https://www.pugliabilance.it/catalogo" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Catalogo Prodotti | Bilance Professionali - Puglia Bilance" />
+  <meta name="twitter:description" content="Sfoglia il catalogo di bilance professionali di Puglia Bilance Capurso. Bilance da banco, pese a ponte e soluzioni industriali." />
+  <meta name="twitter:image" content="https://www.tuosito.it/percorso/alla/immagine_catalogo.jpg" />
+
+  <!-- Tag canonical per evitare contenuti duplicati -->
+  <link rel="canonical" href="https://www.pugliabilance.it/catalogo" />
+
+  <!-- JSON-LD per dati strutturati (Schema LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Puglia Bilance Capurso",
+    "url": "https://www.pugliabilance.it",
+    "logo": "https://www.pugliabilance.it/Main_logo.png",
+    "description": "Bilance professionali per negozi, laboratori e applicazioni industriali in Puglia.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Esempio 123",
+      "addressLocality": "Capurso",
+      "addressRegion": "Puglia",
+      "postalCode": "70010",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
+
+  <!-- Esempio di dati strutturati (Schema Product) per UNA categoria (replicabile per le altre) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Bilance da Banco",
+    "image": "https://www.pugliabilance.it/alex_Color_bianca.jpg",
+    "description": "Soluzioni compatte e versatili per negozi, laboratori e punti vendita di diverse dimensioni.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Puglia Bilance"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.pugliabilance.it/catalogo#bilance-banco",
+      "priceCurrency": "EUR",
+      "price": "99.99",
+      "availability": "http://schema.org/InStock",
+      "itemCondition": "http://schema.org/NewCondition"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" 
+    rel="stylesheet"
+  />
+
+  <style>
+    /******************************************
+      RESET & BASE
+    ******************************************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #003f87;
+    }
+
+    /******************************************
+      HEADER (Effetto wave)
+    ******************************************/
+    header {
+      background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+    /* Effetto wave animato sullo sfondo */
+    header::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 80%;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%) skewY(15deg);
+      animation: wave 8s infinite linear;
+      z-index: 0;
+    }
+    @keyframes wave {
+      0% { transform: translateX(-50%) skewY(15deg); }
+      50% { transform: translateX(0) skewY(15deg); }
+      100% { transform: translateX(-50%) skewY(15deg); }
+    }
+    .header-content {
+      position: relative;
+      z-index: 1; /* Sopra l'effetto wave */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-logo {
+      max-width: 150px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .header-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /******************************************
+      ANIMAZIONI
+    ******************************************/
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* La classe fade-in verrà aggiunta via JS al momento dell'entrata in viewport */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+    .hover-lift:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /******************************************
+      MAIN
+    ******************************************/
+    main {
+      flex: 1 0 auto;
+    }
+    .catalogo {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .catalogo h2 {
+      font-size: 2rem;
+      color: #0056b3;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Barra di ricerca */
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .search-bar input:focus {
+      border-color: #0056b3;
+    }
+    .search-bar svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      fill: #999;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    /******************************************
+      CARDS PRODOTTI
+    ******************************************/
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      /* Stato iniziale per animazione */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .product img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    .product img:hover {
+      transform: scale(1.03);
+    }
+    .product h3 {
+      font-size: 1.2rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+      min-height: 48px;
+    }
+    .product p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    .info-button {
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .info-button:hover {
+      background-color: #003f87;
+    }
+
+    /******************************************
+      FOOTER
+    ******************************************/
+    footer {
+      flex: 0 0 auto;
+      background-color: #0056b3;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    footer p {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+    .credits {
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    /******************************************
+      BACK TO TOP BUTTON
+    ******************************************/
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: #0056b3;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .back-to-top:hover {
+      background-color: #003f87;
+      transform: scale(1.1);
+    }
+
+    /******************************************
+      MEDIA QUERIES
+    ******************************************/
+    @media (max-width: 768px) {
+      .catalogo {
+        padding: 20px 15px;
+      }
+      .catalogo h2 {
+        font-size: 1.5rem;
+      }
+      .product h3 {
+        font-size: 1rem;
+      }
+      .product p {
+        font-size: 0.9rem;
+      }
+      .info-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .product img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-content fade-in">
+      <a href="index.html">
+        <img 
+          src="Main_logo.png" 
+          alt="Puglia Bilance - Homepage" 
+          class="header-logo"
+          loading="lazy"
+        />
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN: Catalogo Prodotti -->
+  <main class="fade-in">
+    <section class="catalogo">
+      <h2>Benvenuto nel nostro Catalogo</h2>
+
+      <!-- Barra di ricerca -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Cerca categoria o descrizione..." />
+        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.56 17.44l-4.22-4.22a7.48 7.48 0 10-2.12 2.12l4.22 4.22a1.5 1.5 0 002.12-2.12zM1.5 7.5a6 6 0 1112 0 6 6 0 01-12 0z"/>
+        </svg>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        
+        <!-- CATEGORIA 1: Bilance da Banco -->
+        <div class="product hover-lift" 
+             data-name="bilance da banco"
+             data-description="Soluzioni compatte e versatili per negozi, laboratori e punti vendita">
+          <img 
+            src="alex_Color_bianca.jpg" 
+            alt="Bilancia da Banco - Modello Alex Color Bianca" 
+            loading="lazy"
+          />
+          <h3 id="bilance-banco">Bilance da Banco</h3>
+          <p>
+            Soluzioni compatte e versatili per negozi, laboratori 
+            e punti vendita di diverse dimensioni.
+          </p>
+          <button 
+            class="info-button" 
+            onclick="window.location.href='bilancia_banco.html';"
+          >
+            Catalogo
+          </button>
+        </div>
+        
+        <!-- CATEGORIA 2: Pese a Ponte -->
+        <div class="product hover-lift"
+             data-name="pese a ponte"
+             data-description="Strutture robuste in acciaio, ideali per pesare veicoli in ambienti industriali">
+          <img 
+            src="pesa_a_ponte.jpg" 
+            alt="Pesa a Ponte industriale" 
+            loading="lazy"
+          />
+          <h3>Pese a Ponte</h3>
+          <p>
+            Strutture robuste in acciaio, ideali per pesare veicoli
+            di grandi dimensioni in ambienti industriali e logistici.
+          </p>
+          <button 
+            class="info-button" 
+            onclick="window.location.href='pesa_a_ponte.html';"
+          >
+            Galleria
+          </button>
+        </div>
+
+        <!-- CATEGORIA 3: Bilance Industriali e Realizzazioni -->
+        <div class="product hover-lift"
+             data-name="bilance industriali"
+             data-description="Soluzioni su misura per progetti speciali nel settore industriale">
+          <img 
+            src="nostre_realizzazioni.jpg" 
+            alt="Esempio di bilancia industriale e realizzazione su misura" 
+            loading="lazy"
+          />
+          <h3>Bilance Industriali e Nostre Realizzazioni</h3>
+          <p>
+            Scopri le nostre soluzioni su misura per l’industria e i progetti
+            speciali adatti a ogni esigenza.
+          </p>
+          <button 
+            class="info-button" 
+            onclick="window.location.href='nostre_realizzazioni.html';"
+          >
+            Galleria
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p class="credits">Sito ideato, progettato e sviluppato da Antonio Abbinante</p>
+  </footer>
+
+  <!-- Pulsante "Torna su" (Back to Top) -->
+  <div class="back-to-top" id="backToTopBtn" title="Torna su">
+    &#8679;
+  </div>
+
+  <!-- Script per attivare animazioni e funzioni aggiuntive -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Animazioni fade-in dei prodotti
+      const products = document.querySelectorAll('.product');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      products.forEach(product => observer.observe(product));
+
+      // Bottone "Torna su" (Back to Top)
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.style.display = 'flex';
+        } else {
+          backToTopBtn.style.display = 'none';
+        }
+      });
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Barra di ricerca (filtro)
+      const searchInput = document.getElementById('searchInput');
+      const productGrid = document.getElementById('productGrid');
+      const productItems = productGrid.querySelectorAll('.product');
+
+      searchInput.addEventListener('input', () => {
+        const filterValue = searchInput.value.toLowerCase();
+        productItems.forEach(item => {
+          const name = item.getAttribute('data-name').toLowerCase();
+          const description = item.getAttribute('data-description').toLowerCase();
+          if (name.includes(filterValue) || description.includes(filterValue)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

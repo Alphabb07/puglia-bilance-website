@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grazie per averci contattato | Puglia Bilance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Breve descrizione SEO/Meta -->
+  <meta 
+    name="description" 
+    content="Grazie per la tua richiesta. Il team di Puglia Bilance Capurso ti risponderà al più presto."
+  />
+  
+  <!-- Font e stili minimi -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0; 
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* Hero / Sezione di Ringraziamento */
+    .thankyou-hero {
+      background: linear-gradient(to bottom right, #0056b3, #004494);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .thankyou-hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .thankyou-hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    .thankyou-hero img {
+      max-width: 150px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Animazione per dare un tocco di movimento all'immagine */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Pulsante per tornare alla Home (o altra sezione) */
+    .cta-button {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #0056b3;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+    .cta-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Footer semplice */
+    .thankyou-footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    @media (max-width: 768px) {
+      .thankyou-hero h1 {
+        font-size: 1.8rem;
+      }
+      .thankyou-hero p {
+        font-size: 1rem;
+      }
+      .thankyou-hero img {
+        max-width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="thankyou-hero">
+    <!-- Logo o icona di check/ringraziamento -->
+    <img
+      src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png"
+      alt="Logo Puglia Bilance"
+    />
+    <h1>Grazie per averci contattato!</h1>
+    <p>
+      La tua richiesta è stata inviata correttamente. Il nostro staff 
+      di Puglia Bilance Capurso ti risponderà al più presto, fornendoti 
+      l’assistenza e le informazioni di cui hai bisogno.
+    </p>
+    <!-- Pulsante per tornare alla home o a un’altra pagina -->
+    <a href="index.html" class="cta-button">Torna alla Home</a>
+
+    <!-- Footer di ringraziamento -->
+    <div class="thankyou-footer">
+      <p>© 2025 Puglia Bilance Capurso - Tutti i diritti riservati.</p>
+    </div>
+  </section>
+</body>
+</html>

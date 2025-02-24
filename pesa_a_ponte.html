@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport per design responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Title SEO -->
+  <title>Pese a Ponte - Puglia Bilance Capurso</title>
+
+  <!-- SEO: Meta Description -->
+  <meta name="description" content="Scopri le soluzioni di pese a ponte di Puglia Bilance Capurso, progettate per garantire affidabilità e precisione nella pesatura dei carichi industriali." />
+  <!-- Meta Robots -->
+  <meta name="robots" content="index, follow" />
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="pese a ponte, pesatura industriale, Puglia Bilance, cantieri, impianti industriali" />
+  <!-- Tag Canonical -->
+  <link rel="canonical" href="https://www.pugliabilancecapurso.com/pese_a_ponte" />
+
+  <!-- Open Graph per condivisione social -->
+  <meta property="og:title" content="Pese a Ponte - Puglia Bilance Capurso" />
+  <meta property="og:description" content="Le soluzioni ideali per la pesatura dei carichi industriali. Scopri la nostra gamma di pese a ponte." />
+  <meta property="og:image" content="https://www.pugliabilancecapurso.com/path/to/og_image.jpg" />
+  <meta property="og:url" content="https://www.pugliabilancecapurso.com/pese_a_ponte" />
+  <meta property="og:type" content="website" />
+
+  <!-- JSON-LD per dati strutturati (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Puglia Bilance Capurso",
+    "url": "https://www.pugliabilancecapurso.com",
+    "logo": "https://www.pugliabilancecapurso.com/Main_logo.png",
+    "description": "Soluzioni di pese a ponte e bilance industriali per cantieri e impianti in Puglia.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Esempio 123",
+      "addressLocality": "Capurso",
+      "addressRegion": "Puglia",
+      "postalCode": "70010",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Animazioni */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    /* Effetto onda animata */
+    @keyframes wave {
+      0% { transform: translateX(-50%) skewY(15deg); }
+      50% { transform: translateX(0) skewY(15deg); }
+      100% { transform: translateX(-50%) skewY(15deg); }
+    }
+
+    /* Stili generali */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER con effetto wave e gradiente come home catalogo */
+    header {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 80%;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%) skewY(15deg);
+      animation: wave 8s infinite linear;
+      z-index: 0;
+    }
+    .header-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1; /* Sopra l'effetto wave */
+    }
+    .header-logo {
+      margin-bottom: 10px;
+    }
+    .header-logo img {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    header .page-title {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    header .page-subtitle {
+      font-size: 1rem;
+      margin: 5px 0 0;
+    }
+
+    /* CONTAINER PRINCIPALE */
+    .container {
+      flex: 1 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* DESCRIZIONE GENERALE */
+    .general-description {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      text-align: center;
+      /* Stato iniziale per animazione */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .general-description h2 {
+      font-size: 1.6rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+    .general-description p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    /* GALLERIA IMMAGINI */
+    .gallery-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      /* Stato iniziale per animazione */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      min-height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      flex: 0 0 auto;
+      background-color: #0056b3;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    footer p {
+      font-size: 0.85rem;
+      margin: 5px 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .page-title {
+        font-size: 1.4rem;
+      }
+      header .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .header-logo img {
+        max-width: 140px;
+      }
+      .general-description h2 {
+        font-size: 1.4rem;
+      }
+      .general-description p {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+      .general-description {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="fade-in">
+    <div class="header-content">
+      <div class="header-logo">
+        <a href="home_catalogo.html">
+          <img src="Main_logo.png" alt="Puglia Bilance - Home" loading="lazy">
+        </a>
+      </div>
+      <h1 class="page-title">Pese a Ponte</h1>
+      <p class="page-subtitle">Le soluzioni ideali per la pesatura dei carichi industriali</p>
+    </div>
+  </header>
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <div class="container">
+    <!-- Descrizione Generale -->
+    <div class="general-description">
+      <h2>La Nostra Gamma di Pese a Ponte</h2>
+      <p>
+        Le pese a ponte di Puglia Bilance Capurso sono progettate per garantire affidabilità e precisione nella pesatura dei carichi più impegnativi. Grazie alla robustezza dei materiali e all’innovazione tecnologica, le nostre soluzioni sono ideali per impianti industriali, cantieri e ambienti ad alta produttività. Scopri di seguito la nostra selezione, studiata per rispondere a ogni esigenza di pesatura.
+      </p>
+    </div>
+
+    <!-- Galleria Immagini -->
+    <div class="gallery-grid">
+      <!-- Immagine 1 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_1.jpg" alt="Pesa a Ponte Modello Alpha" loading="lazy">
+      </div>
+      <!-- Immagine 2 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_2.jpg" alt="Pesa a Ponte Modello Beta" loading="lazy">
+      </div>
+      <!-- Immagine 3 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_3.jpg" alt="Pesa a Ponte Modello Gamma" loading="lazy">
+      </div>
+      <!-- Immagine 4 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_4.jpg" alt="Pesa a Ponte Modello Delta" loading="lazy">
+      </div>
+      <!-- Immagine 5 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_5.jpg" alt="Pesa a Ponte Super" loading="lazy">
+      </div>
+      <!-- Immagine 6 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_6.jpg" alt="Pesa a Ponte Iper" loading="lazy">
+      </div>
+      <!-- Immagine 7 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_7.jpg" alt="Pesa a Ponte Mega" loading="lazy">
+      </div>
+      <!-- Immagine 8 -->
+      <div class="gallery-item">
+        <img src="pesa_a_ponte_8.jpg" alt="Pesa a Ponte Ultra" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p>Sito ideato, progettato e sviluppato da Antonio Abbinante</p>
+  </footer>
+
+  <!-- Script per animare gli elementi al momento in cui entrano in viewport -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.general-description, .gallery-item, header, footer');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

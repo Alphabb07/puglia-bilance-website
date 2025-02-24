@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilance da Banco - Puglia Bilance Capurso</title>
+
+  <!-- SEO Meta Tags principali -->
+  <meta name="description" content="Puglia Bilance Capurso offre bilance da banco di alta qualità per negozi, mercati e laboratori. Scopri le nostre soluzioni innovative e professionali." />
+  <meta name="keywords" content="bilance da banco, bilance professionali, bilance commerciali, puglia bilance, negozi, mercati, laboratori" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="http://www.pugliabilancecapurso.com" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Bilance da Banco - Puglia Bilance Capurso" />
+  <meta property="og:description" content="Bilance da banco di alta precisione per negozi, mercati e laboratori." />
+  <meta property="og:image" content="Main_logo.png" />
+  <meta property="og:url" content="http://www.pugliabilancecapurso.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bilance da Banco - Puglia Bilance Capurso" />
+  <meta name="twitter:description" content="Bilance da banco di alta precisione per negozi, mercati e laboratori." />
+  <meta name="twitter:image" content="Main_logo.png" />
+
+  <!-- JSON-LD generico (Schema LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Puglia Bilance Capurso",
+    "url": "http://www.pugliabilancecapurso.com",
+    "logo": "http://www.pugliabilancecapurso.com/Main_logo.png",
+    "description": "Bilance da banco di alta qualità per negozi, mercati e laboratori.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Esempio 123",
+      "addressLocality": "Capurso",
+      "addressRegion": "Puglia",
+      "postalCode": "70010",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
+
+  <!-- Esempio di dati strutturati (Schema Product) per UNO dei prodotti (replicabile per ciascun prodotto) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Eurobil Alex Color Bianca",
+    "image": "http://www.pugliabilancecapurso.com/alex_Color_bianca.jpg",
+    "description": "Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati. Offre precisione, praticità e resistenza in ambienti commerciali.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Eurobil"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "http://www.pugliabilancecapurso.com",
+      "priceCurrency": "EUR",
+      "price": "99.99",
+      "availability": "http://schema.org/InStock",
+      "itemCondition": "http://schema.org/NewCondition"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Stili generali */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth; /* Per lo scroll fluido su "Torna su" */
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      /* Effetto decorativo: animazione wave in background */
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 80%;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%) skewY(15deg);
+      animation: wave 8s infinite linear;
+      z-index: 0;
+    }
+    @keyframes wave {
+      0% { transform: translateX(-50%) skewY(15deg); }
+      50% { transform: translateX(0) skewY(15deg); }
+      100% { transform: translateX(-50%) skewY(15deg); }
+    }
+    .header-content {
+      position: relative;
+      z-index: 1; /* Sopra l'effetto wave */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-logo {
+      margin-bottom: 10px;
+    }
+    .header-logo img {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .header-logo img:hover {
+      transform: scale(1.05);
+    }
+    header .page-title {
+      font-size: 1.8rem;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    header .page-subtitle {
+      font-size: 1rem;
+      margin: 5px 0 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* CONTENUTO PRINCIPALE */
+    .container {
+      flex: 1 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Barra di ricerca prodotti */
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .search-bar input:focus {
+      border: 1px solid #0056b3;
+    }
+    .search-bar svg {
+      position: absolute;
+      right: 15px;
+      fill: #999;
+    }
+
+    /* Griglia Prodotti */
+    .product-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 20px;
+    }
+
+    /* Stile base dei prodotti (con stato iniziale per animazione) */
+    .product {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Classe aggiunta dall'IntersectionObserver per avviare l'animazione */
+    .product.animate-fade {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .product img {
+      max-width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+    .product img:hover {
+      transform: scale(1.03);
+    }
+    .product h3 {
+      font-size: 1.2rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+      min-height: 48px;
+    }
+    .product p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .show-more {
+      color: #0056b3;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+    .show-more:hover {
+      color: #003f87;
+    }
+
+    /* Footer */
+    footer {
+      flex: 0 0 auto;
+      background-color: #0056b3;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      position: relative;
+    }
+    footer p {
+      font-size: 0.85rem;
+      margin: 5px 0;
+    }
+
+    /* Pulsante "Torna su" (Back to Top) */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: #0056b3;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .back-to-top:hover {
+      background-color: #003f87;
+      transform: scale(1.1);
+    }
+
+    /* Popup Overlay e finestra di dettaglio */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .popup-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .popup {
+      background-color: #fff;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: translateY(-30px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .popup.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .popup img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .popup h2 {
+      font-size: 1.3rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+    .popup p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .close-btn:hover {
+      background-color: #cc0000;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .page-title {
+        font-size: 1.4rem;
+      }
+      header .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .header-logo img {
+        max-width: 140px;
+      }
+      .product img {
+        height: auto; /* per evitare distorsioni su schermi più piccoli */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="header-logo">
+        <a href="home_catalogo.html">
+          <img src="Main_logo.png" alt="Puglia Bilance - Home" loading="lazy">
+        </a>
+      </div>
+      <h1 class="page-title">Bilance da Banco</h1>
+      <p class="page-subtitle">Le soluzioni ideali per negozi e laboratori</p>
+    </div>
+  </header>
+
+  <!-- Contenuto Principale -->
+  <div class="container">
+
+    <!-- Barra di ricerca -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Cerca una bilancia..." />
+      <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M19.56 17.44l-4.22-4.22a7.48 7.48 0 10-2.12 2.12l4.22 4.22a1.5 1.5 0 002.12-2.12zM1.5 7.5a6 6 0 1112 0 6 6 0 01-12 0z"/></svg>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Prodotto 1: Alex Color Bianca -->
+      <div class="product" data-name="alex color bianca" data-description="Eurobil Alex Color, ideale per negozi e mercati">
+        <img src="alex_Color_bianca.jpg" alt="Bilancia da banco - Eurobil Alex Color Bianco" loading="lazy">
+        <h3>Eurobil Alex Color Bianca</h3>
+        <p>
+          Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 2: Alex Color Blu -->
+      <div class="product" data-name="alex color blu" data-description="Eurobil Alex Color blu, negozi mercati precisione">
+        <img src="alex-color-blu.jpg" alt="Bilancia da banco - Eurobil Alex Color Blu" loading="lazy">
+        <h3>Eurobil Alex Color Blu</h3>
+        <p>
+          Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 3: Alex Rossa -->
+      <div class="product" data-name="alex color rossa" data-description="Bilancia rossa Eurobil Alex, negozi mercati">
+        <img src="ALEX_COLOR_ROSSA.jpg" alt="Bilancia da banco - Alex Color Rossa" loading="lazy">
+        <h3>Alex Color Rossa</h3>
+        <p>
+          Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 4: Modello Mare -->
+      <div class="product" data-name="bilancia modello mare" data-description="Bilancia ideale per negozi e mercati, precisione">
+        <img src="BILANCIA_MARE.jpg" alt="Bilancia da banco - Eurobil Alex Color Blu (Duplicato)" loading="lazy">
+        <h3>Bilancia Modello Mare</h3>
+        <p>
+          Bilancia ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 5: Alex Color Black -->
+      <div class="product" data-name="alex color black" data-description="Bilancia Eurobil Alex color black">
+        <img src="ALEX_COLOR.jpg" alt="Bilancia da banco - Eurobil Alex Color Rossa (Duplicato)" loading="lazy">
+        <h3>Alex Color Black</h3>
+        <p>
+          Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 6: Prezzo Peso Importo -->
+      <div class="product" data-name="prezzo peso importo" data-description="Bilancia prezzo peso importo, calcolo totale">
+        <img src="Prezzo_peso_importo.jpg" alt="Bilancia da banco - Prezzo Peso Importo" loading="lazy">
+        <h3>Bilancia Prezzo Peso e Importo</h3>
+        <p>
+          Bilancia ideale per negozi al dettaglio e mercati.
+          Calcola automaticamente il prezzo in base al peso e mostra l’importo totale.
+          <span class="show-more" onclick="openPopup('popup6')">Mostra Altro</span>
+        </p>
+      </div>
+
+      <!-- Prodotto 7: Prezzo Peso e Importo (duplicato) -->
+      <div class="product" data-name="prezzo peso importo mod asg" data-description="Bilancia calcolo totale mod asg">
+        <img src="prezzo_peso_importo_flat.jpg" alt="Bilancia da banco - Prezzo Peso Importo (Nuovo)" loading="lazy">
+        <h3>Bilancia Prezzo Peso e Importo Mod.asg</h3>
+        <p>
+          Bilancia ideale per negozi al dettaglio e mercati.
+          Calcola automaticamente il prezzo in base al peso e mostra l’importo totale.
+          <span class="show-more" onclick="openPopup('popup7')">Mostra Altro</span>
+        </p>
+      </div>
+
+      <!-- Prodotto 8: Eurobil Alex flat -->
+      <div class="product" data-name="eurobil alex flat" data-description="Bilancia Eurobil Alex Color, negozi, mercati">
+        <img src="alex-color-flat.jpg" alt="Bilancia da banco - Eurobil Alex Color Blu (Duplicato2)" loading="lazy">
+        <h3>Eurobil Alex flat</h3>
+        <p>
+          Bilancia Eurobil Alex Color, ideale per negozi al dettaglio e mercati.
+          Offre precisione, praticità e resistenza in ambienti commerciali.
+        </p>
+      </div>
+
+      <!-- Prodotto 9: Prezzo Peso e Importo asgp -->
+      <div class="product" data-name="prezzo peso importo asgp" data-description="Bilancia negozi mercati, calcolo totale asgp">
+        <img src="ASGP_prezzo-peso-importo.jpg" alt="Bilancia da banco - Prezzo Peso e Importo asgp" loading="lazy">
+        <h3>Bilancia Prezzo Peso e Importo ASGP</h3>
+        <p>
+          Bilancia ideale per negozi al dettaglio e mercati.
+          Calcola automaticamente il prezzo in base al peso e mostra l’importo totale.
+          <span class="show-more" onclick="openPopup('popup9')">Mostra Altro</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p>Sito ideato, progettato e sviluppato da Antonio Abbinante</p>
+  </footer>
+
+  <!-- Pulsante Torna su (Back to Top) -->
+  <div class="back-to-top" id="backToTopBtn" title="Torna su">
+    &#8679;
+  </div>
+
+  <!-- Popup content (Esempio per il Popup 6) -->
+  <div class="popup-overlay" id="popup6">
+    <div class="popup" id="popup6Content">
+      <button class="close-btn" onclick="closePopup('popup6')">×</button>
+      <img src="Prezzo_peso_importo.jpg" alt="Dettaglio Bilancia - Prezzo Peso e Importo" loading="lazy">
+      <h2>Bilancia Prezzo Peso e Importo - Descrizione Completa</h2>
+      <p>
+        <strong>Descrizione completa:</strong><br>
+        Questa bilancia integra le funzioni di peso, calcolo del prezzo e visualizzazione
+        dell’importo totale in un unico dispositivo compatto.
+        <br><br>
+        Dotata di:
+        <ul>
+          <li>Piatto in acciaio inox</li>
+          <li>Doppio display per operatore e cliente</li>
+          <li>Tastiera intuitiva per impostare il prezzo al kg</li>
+          <li>Alimentazione a rete e batteria</li>
+        </ul>
+        Garantisce precisione, praticità e resistenza.
+      </p>
+    </div>
+  </div>
+
+  <!-- Popup 7 (struttura simile) -->
+  <div class="popup-overlay" id="popup7">
+    <div class="popup" id="popup7Content">
+      <button class="close-btn" onclick="closePopup('popup7')">×</button>
+      <img src="prezzo_peso_importo_flat.jpg" alt="Dettaglio Bilancia - Prezzo Peso Importo Mod.asg" loading="lazy">
+      <h2>Bilancia Prezzo Peso e Importo Mod.asg - Descrizione Completa</h2>
+      <p>
+        <strong>Descrizione completa:</strong><br>
+        Bilancia con tutte le funzioni di prezzo, peso e importo.
+        Compatibile con ambienti retail, mercati e negozi di vario genere.<br><br>
+        Specifiche aggiuntive:
+        <ul>
+          <li>Piatto in acciaio inox di grandi dimensioni</li>
+          <li>Display retroilluminato</li>
+          <li>Struttura compatta e resistente</li>
+        </ul>
+        Perfetta per un uso intensivo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Popup 9 (struttura simile) -->
+  <div class="popup-overlay" id="popup9">
+    <div class="popup" id="popup9Content">
+      <button class="close-btn" onclick="closePopup('popup9')">×</button>
+      <img src="ASGP_prezzo-peso-importo.jpg" alt="Dettaglio Bilancia - Prezzo Peso e Importo ASGP" loading="lazy">
+      <h2>Bilancia Prezzo Peso e Importo ASGP - Descrizione Completa</h2>
+      <p>
+        <strong>Descrizione completa:</strong><br>
+        Bilancia dotata di funzioni avanzate: prezzo, peso e importo in un’unica schermata.
+        <br><br>
+        Include:
+        <ul>
+          <li>Calcolo automatico sconti e promo</li>
+          <li>Memoria taratura personalizzata</li>
+          <li>Batteria a lunga durata</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Funzione per aprire un popup
+    function openPopup(popupId) {
+      const overlay = document.getElementById(popupId);
+      const popup = overlay.querySelector('.popup');
+      overlay.classList.add('active');
+      popup.classList.add('active');
+    }
+
+    // Funzione per chiudere un popup
+    function closePopup(popupId) {
+      const overlay = document.getElementById(popupId);
+      const popup = overlay.querySelector('.popup');
+      popup.classList.remove('active');
+      // Attendi la fine della transizione prima di togliere display
+      setTimeout(() => {
+        overlay.classList.remove('active');
+      }, 300);
+    }
+
+    // Animazione dei prodotti: quando entrano in vista, viene aggiunta la classe "animate-fade"
+    document.addEventListener('DOMContentLoaded', () => {
+      const products = document.querySelectorAll('.product');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      products.forEach(product => {
+        observer.observe(product);
+      });
+    });
+
+    // Filtro di ricerca prodotti
+    const searchInput = document.getElementById('searchInput');
+    const productGrid = document.getElementById('productGrid');
+    const productItems = productGrid.querySelectorAll('.product');
+
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      productItems.forEach(item => {
+        const name = item.getAttribute('data-name').toLowerCase();
+        const description = item.getAttribute('data-description').toLowerCase();
+        if (name.includes(filter) || description.includes(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    // Bottone "Torna su" (Back to Top)
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -2,144 +2,414 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Puglia Bilance Capurso - Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Title -->
+  <title>Bilance Professionali a Capurso | Puglia Bilance</title>
+
+  <!-- SEO: Meta Description -->
+  <meta 
+    name="description" 
+    content="Puglia Bilance Capurso offre bilance professionali per negozi e aziende in tutta la Puglia. Noleggio, installazione e manutenzione con servizi di assistenza dedicati."
+  />
+
+  <!-- Meta Keywords -->
+  <meta 
+    name="keywords" 
+    content="bilance professionali,Puglia Bilance Capurso,noleggio bilance,manutenzione bilance,installazione bilance,verifica periodica bilance,assistenza bilance,Puglia,Bari,Capurso"
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bilance Professionali a Capurso | Puglia Bilance" />
+  <meta property="og:description" content="Noleggio, installazione e manutenzione di bilance professionali per ogni esigenza. Affidati a Puglia Bilance Capurso per un servizio completo." />
+  <meta property="og:image" content="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" />
+  <meta property="og:url" content="https://www.pugliabilance.it/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bilance Professionali a Capurso | Puglia Bilance" />
+  <meta name="twitter:description" content="Noleggio, installazione e manutenzione di bilance professionali per ogni esigenza. Affidati a Puglia Bilance Capurso per un servizio completo." />
+  <meta name="twitter:image" content="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" />
+
+  <!-- Tag canonical -->
+  <link rel="canonical" href="https://www.pugliabilance.it/" />
+
+  <!-- JSON-LD Local Business Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Puglia Bilance Capurso",
+    "image": "https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png",
+    "@id": "https://www.pugliabilance.it/",
+    "url": "https://www.pugliabilance.it/",
+    "telephone": "080 4551512",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Piave, 66",
+      "addressLocality": "Capurso",
+      "addressRegion": "BA",
+      "postalCode": "70010",
+      "addressCountry": "IT"
+    },
+    "openingHours": [
+      "Mo-Fr 06:30-13:00",
+      "Mo-Fr 14:30-18:30",
+      "Sa 06:30-13:00"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Esempio JSON-LD per un singolo "Service" -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Noleggio e Manutenzione Bilance",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Puglia Bilance Capurso"
+    },
+    "areaServed": "Puglia, Italia",
+    "description": "Servizi di noleggio, installazione e manutenzione di bilance professionali per negozi e aziende in Puglia."
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/favicon.png"
+    type="image/png"
+  />
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     rel="stylesheet"
   />
+
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
+    /* RESET & BASE */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Roboto', sans-serif;
       background-color: #f9f9f9;
       color: #333;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+    a {
+      transition: color 0.3s, background-color 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    a:hover {
+      color: #003f87;
     }
 
+    /* Effetti di animazione e transizione */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    /* HEADER con wave effect, e gradiente come home catalogo */
     header {
-      background-color: #0056b3;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
       color: #fff;
       padding: 15px 20px;
       text-align: center;
     }
-
+    header::before {
+      /* Effetto onda animata */
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 80%;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%) skewY(15deg);
+      animation: wave 8s infinite linear;
+      z-index: 0;
+    }
+    @keyframes wave {
+      0% { transform: translateX(-50%) skewY(15deg); }
+      50% { transform: translateX(0) skewY(15deg); }
+      100% { transform: translateX(-50%) skewY(15deg); }
+    }
     header .site-logo img {
       max-width: 150px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s;
     }
-
+    header .site-logo img:hover {
+      transform: scale(1.05);
+    }
     header .site-description {
       font-size: 1rem;
       margin-top: 5px;
+      position: relative;
+      z-index: 1;
     }
-
     nav ul {
       list-style: none;
-      padding: 0;
-      margin: 15px 0 0;
       display: flex;
       justify-content: center;
       gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0 0;
+      padding: 0;
+      position: relative;
+      z-index: 1;
     }
-
-    nav ul li {
-      display: inline-block;
-    }
-
     nav ul li a {
       color: #fff;
       padding: 8px 12px;
-      text-decoration: none;
       border-radius: 4px;
       font-size: 0.9rem;
-      transition: background 0.3s;
     }
-
     nav ul li a:hover {
-      background-color: #004494;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .user-login {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .user-login img {
+      height: 30px;
+      width: auto;
+      transition: transform 0.3s;
+    }
+    .user-login img:hover {
+      transform: scale(1.1);
     }
 
+    /* HERO */
     .hero {
       text-align: center;
-      padding: 30px 20px;
-      background-color: #f1f1f1;
+      padding: 50px 20px;
+      background: #f1f1f1;
+      position: relative;
+      overflow: hidden;
     }
-
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50px;
+      width: 120%;
+      height: 100%;
+      background: url("https://via.placeholder.com/1200x800/cccccc/666666?text=Hero+BG") no-repeat center/cover;
+      opacity: 0.1;
+      pointer-events: none;
+      transform: rotate(3deg);
+    }
     .hero img {
       max-width: 90%;
       border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
-
     .hero h1 {
       font-size: 2rem;
       color: #0056b3;
       margin: 15px 0;
+      position: relative;
+      z-index: 1;
     }
-
     .hero p {
       font-size: 1rem;
       line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Footer */
-    footer {
-      background-color: #0056b3;
-      color: #fff;
-      padding: 20px 10px;
+    /* BARRA DI RICERCA (dimostrativa) */
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+      margin: 30px auto 20px auto;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .search-bar input:focus {
+      border-color: #0056b3;
+    }
+    .search-bar svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      fill: #999;
+      pointer-events: none;
+    }
+
+    /* CONTENT SECTION */
+    .content-section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .content-section h2 {
+      font-size: 1.8rem;
+      color: #0056b3;
+      margin-bottom: 20px;
       text-align: center;
     }
-
-    footer img {
-      max-width: 120px;
+    .content-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .content-section ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .content-section ul li {
+      list-style-type: disc;
+      margin-bottom: 5px;
     }
 
-    footer p {
-      font-size: 0.85rem;
-      margin: 5px 0;
+    /* FOOTER */
+    footer {
+      background: linear-gradient(to right, #0056b3, #004494);
+      color: #fff;
+      padding: 30px 10px;
+      text-align: center;
+      position: relative;
     }
-
-    /* Popup Styles */
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
+    footer::before {
+      content: "";
+      position: absolute;
+      top: -50px;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
+      height: 150px;
+      background: url("https://via.placeholder.com/1200x200/ffffff/cccccc?text=Footer+BG") no-repeat center/cover;
+      opacity: 0.08;
+      pointer-events: none;
+      transform: rotate(-3deg);
+    }
+    footer img {
+      max-width: 120px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    footer p {
+      font-size: 0.85rem;
+      margin: 10px 0 5px;
+      position: relative;
+      z-index: 1;
     }
 
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      background-color: #0056b3;
+      color: #fff;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, background-color 0.3s;
+      z-index: 1001;
+    }
+    .back-to-top:hover {
+      background-color: #004494;
+      transform: scale(1.1);
+    }
+
+    /* POPUP & OVERLAY (con animazione moderna di apertura/chiusura) */
+    .popup-overlay {
+      position: fixed;
+      inset: 0; /* top:0; left:0; bottom:0; right:0; */
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    /* Quando aggiungiamo la classe .show, l’overlay appare */
+    .popup-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
     .popup {
       background-color: #fff;
       border-radius: 12px;
       width: 90%;
-      max-width: 400px;
-      margin: 50px auto;
+      max-width: 450px;
+      margin: 60px auto;
       padding: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       text-align: center;
       position: relative;
+      /* Partenza “shrink + fade” */
+      transform: translateY(-40px) scale(0.8);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
     }
-
+    /* Con .show la popup appare “zoomata” e visibile */
+    .popup-overlay.show .popup {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
     .popup h2 {
       font-size: 1.4rem;
       color: #0056b3;
       margin-bottom: 20px;
     }
-
     .popup .close-btn {
       position: absolute;
-      top: 10px;
+      top: 10px; 
       right: 10px;
       background-color: #ff4d4d;
       color: #fff;
       border: none;
       border-radius: 50%;
-      width: 30px;
+      width: 30px; 
       height: 30px;
       cursor: pointer;
       font-size: 1rem;
@@ -147,109 +417,119 @@
       text-align: center;
       transition: background 0.3s;
     }
-
     .popup .close-btn:hover {
       background-color: #cc0000;
     }
-
     .popup img {
       max-width: 100px;
       margin: 10px 0;
       cursor: pointer;
       transition: transform 0.2s;
     }
-
     .popup img:hover {
       transform: scale(1.1);
     }
-
-    .popup a {
-      text-decoration: none;
-    }
-
-    .popup a.button {
+    .popup .button {
       display: inline-block;
       padding: 10px 15px;
       background-color: #0056b3;
       color: #fff;
       border-radius: 6px;
       margin: 10px 0;
+      text-decoration: none;
       transition: background 0.3s;
     }
-
-    .popup a.button:hover {
+    .popup .button:hover {
       background-color: #004494;
     }
-
     .popup .social-icons {
       display: flex;
       justify-content: center;
       gap: 15px;
     }
-
     .popup .social-icons img {
-      width: 40px;
+      width: 40px; 
       height: 40px;
     }
 
-    /* Classi per stato e colori */
-    .open {
-      color: green;           /* Aperto => verde */
-      font-weight: bold;
+    /* STILI FORM */
+    form {
+      display: flex; 
+      flex-direction: column; 
+      gap: 15px; 
+      margin-top: 10px; 
+      text-align: left;
     }
-    .closing-light {
-      color: #FFB347;         /* In chiusura => arancione chiaro */
-      font-weight: bold;
+    form label {
+      font-weight: 500; 
+      color: #444; 
+      margin-bottom: 5px; 
+      font-size: 0.95rem;
     }
-    .closed {
-      color: red;             /* Chiuso => rosso */
-      font-weight: bold;
+    form input[type="text"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.95rem;
+    }
+    form textarea {
+      resize: vertical;
+    }
+    form button[type="submit"] {
+      background-color: #0056b3;
+      border: none;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+      align-self: flex-end;
+    }
+    form button[type="submit"]:hover {
+      background-color: #004494;
     }
 
-    /* Mobile Optimization */
+    /* STATI DI APERTURA/CHIUSURA SEDE */
+    .open { color: green; font-weight: bold; }
+    .opening-soon { color: orange; font-weight: bold; }
+    .closing-soon { color: orange; font-weight: bold; }
+    .closed { color: red; font-weight: bold; }
+
+    /* MEDIA QUERY */
     @media screen and (max-width: 768px) {
       header .site-description {
         font-size: 0.9rem;
       }
-
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
       nav ul li a {
-        padding: 6px 10px;
         font-size: 0.8rem;
       }
-
       .hero h1 {
         font-size: 1.8rem;
       }
-
       .hero p {
         font-size: 0.9rem;
       }
-
+      .content-section p {
+        font-size: 0.95rem;
+      }
       footer p {
         font-size: 0.8rem;
       }
-
       .popup h2 {
         font-size: 1.2rem;
       }
-
-      .popup a.button {
-        font-size: 0.85rem;
-        padding: 8px 12px;
+      form button[type="submit"] {
+        font-size: 0.9rem;
       }
-
       .popup img {
         max-width: 80px;
       }
-
       .popup .social-icons img {
-        width: 35px;
+        width: 35px; 
         height: 35px;
       }
     }
@@ -257,57 +537,118 @@
 </head>
 
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
-    <div class="site-logo">
-      <img
-        src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png"
-        alt="Logo Puglia Bilance Capurso"
+    <div class="site-logo fade-in">
+      <img 
+        src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" 
+        alt="Logo di Puglia Bilance Capurso - Bilance Professionali"
       />
     </div>
-    <p class="site-description">Noleggio, Installazione e Manutenzione</p>
-    <nav>
+    <p class="site-description fade-in">Noleggio, Installazione e Manutenzione Bilance Professionali</p>
+    <nav class="fade-in">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogo.html">Prodotti</a></li>
+        <li><a href="home_catalogo.html">Prodotti</a></li>
         <li><a href="#" onclick="openPopup()">Contatti</a></li>
         <li><a href="#" onclick="openAssistancePopup()">Assistenza</a></li>
         <li><a href="#" onclick="openSocialPopup()">Social</a></li>
         <li><a href="#" onclick="openLocationPopup()">Sede</a></li>
+        <li>
+          <a 
+            href="https://www.laboratoriometrico2p.it" 
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Laboratorio metrico
+          </a>
+        </li>
       </ul>
     </nav>
+    <!-- Popup per l'area riservata -->
+    <div class="user-login" onclick="openUserReservedPopup()">
+      <img 
+        src="https://img.icons8.com/ios-filled/50/ffffff/user.png" 
+        alt="Accedi all'area utente"
+        class="hover-scale"
+      />
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img
-      src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg"
-      alt="Bilance Professionali"
+  <!-- HERO SECTION -->
+  <section class="hero fade-in">
+    <img 
+      src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/home.jpg" 
+      alt="Esposizione di bilance professionali a Capurso, Puglia Bilance" 
+      loading="lazy"
     />
     <h1>Bilance di Alta Qualità per Ogni Necessità</h1>
     <p>
-      Scopri la nostra gamma di bilance, progettate per soddisfare le esigenze di
-      qualsiasi attività, dal negozio al grande magazzino.
+      Da oltre 30 anni offriamo soluzioni su misura per negozi, ristoranti, industrie e grandi magazzini. 
+      Scopri le nostre bilance professionali e l’assistenza specializzata in tutta la Puglia.
     </p>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <img
-      src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png"
-      alt="Logo Footer"
+  <!-- BARRA DI RICERCA (Dimostrativa) -->
+  <div class="search-bar fade-in">
+    <input type="text" id="searchInput" placeholder="Cerca tra i nostri servizi..." />
+    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.56 17.44l-4.22-4.22a7.48 7.48 0 10-2.12 2.12l4.22 4.22a1.5 1.5 0 002.12-2.12zM1.5 7.5a6 6 0 1112 0 6 6 0 01-12 0z"/>
+    </svg>
+  </div>
+
+  <!-- SEZIONE CONTENUTI / SEO -->
+  <section class="content-section">
+    <h2 class="fade-in">I Nostri Servizi</h2>
+
+    <!-- Paragrafi "filtrabili" (esempio) -->
+    <p class="fade-in filter-item" data-keywords="noleggio manutenzione bilance professionali">
+      Presso <strong>Puglia Bilance Capurso</strong> ti supportiamo con servizi di noleggio, 
+      installazione e manutenzione di bilance professionali, assicurando precisione e affidabilità in ogni contesto.
+    </p>
+    <p class="fade-in filter-item" data-keywords="verifica periodica taratura bilance esperti">
+      Oltre alla vendita di bilance, forniamo verifica periodica e taratura per garantire il corretto funzionamento dei tuoi strumenti. 
+      La nostra squadra di tecnici esperti risponde rapidamente a qualsiasi necessità, dal semplice controllo alle riparazioni più complesse.
+    </p>
+    <h2 class="fade-in">Perché Scegliere Puglia Bilance Capurso</h2>
+    <p class="fade-in filter-item" data-keywords="esperienza trentennale soluzioni innovative affidabilità">
+      La nostra azienda si distingue per l’esperienza trentennale e la costante ricerca di soluzioni innovative. 
+      Siamo partner di fiducia per molte realtà commerciali e industriali in tutta la provincia di Bari e in Puglia, 
+      offrendo un <em>servizio completo</em>:
+    </p>
+    <ul class="fade-in filter-item" data-keywords="consulenza personalizzata noleggio manutenzione verifiche supporto">
+      <li>Consulenza personalizzata nella scelta delle bilance adatte alle tue esigenze</li>
+      <li>Noleggio a breve e lungo termine</li>
+      <li>Installazione e messa in funzione</li>
+      <li>Manutenzione programmata e straordinaria</li>
+      <li>Verifica periodica e certificazioni</li>
+      <li>Supporto tecnico rapido e professionale</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <img 
+      src="https://www.pugliabilance.it/wp/wp-content/uploads/2023/06/logo-trasp.png" 
+      alt="Logo Footer Puglia Bilance" 
+      loading="lazy"
     />
-    <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p>© 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p>Sito ideato, progettato e sviluppato da Antonio Abbinante</p>
   </footer>
 
-  <!-- Popup Contatti -->
+  <!-- Pulsante Torna su (Back to Top) -->
+  <div class="back-to-top" id="backToTopBtn" title="Torna su">
+    &#8679;
+  </div>
+
+  <!-- POPUP CONTATTI -->
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup">
       <button class="close-btn" onclick="closePopup()">×</button>
       <h2>Contatti</h2>
-      <p><span>Tel. Ufficio:</span> 080 4551512</p>
-      <p><span>Cell. Pasquale:</span> 347 5515120</p>
-      <p><span>Email:</span> pugliabilance@libero.it</p>
+      <p><strong>Tel. Ufficio:</strong> 080 4551512</p>
+      <p><strong>Cell. Pasquale:</strong> 347 5515120</p>
+      <p><strong>Email:</strong> pugliabilance@libero.it</p>
       <p>Orari di apertura:</p>
       <p>Lun - Ven: 6:30 - 13:00 / 14:30 - 18:30</p>
       <p>Sab: 6:30 - 13:00</p>
@@ -315,217 +656,234 @@
     </div>
   </div>
 
-  <!-- Popup Assistenza -->
+  <!-- POPUP ASSISTENZA -->
   <div class="popup-overlay" id="popupAssistance">
     <div class="popup">
       <button class="close-btn" onclick="closeAssistancePopup()">×</button>
       <h2>Assistenza Tecnica</h2>
-      <p>
-        Richiedi il nostro supporto per verifiche periodiche o interventi
-        tecnici.
-      </p>
-      <a
-        href="https://forms.gle/8s94dPMf2d4Djydj9"
-        target="_blank"
-        class="button"
-        >Richiedi Verifica Periodica</a
-      >
-      <a
-        href="https://forms.gle/PUjeJXWZB7PsswiEA"
-        target="_blank"
-        class="button"
-        >Richiedi Assistenza</a
-      >
+      <p>L'area assistenza è attualmente in fase di sviluppo.</p>
+      <p>Resta sintonizzato per aggiornamenti!</p>
     </div>
   </div>
 
-  <!-- Popup Social -->
+  <!-- POPUP AREA RISERVATA -->
+  <div class="popup-overlay" id="popupUserReserved">
+    <div class="popup">
+      <button class="close-btn" onclick="closeUserReservedPopup()">×</button>
+      <h2>Area Riservata</h2>
+      <p>L'area riservata è attualmente in fase di sviluppo.</p>
+      <p>Riprova più tardi.</p>
+    </div>
+  </div>
+
+  <!-- POPUP SOCIAL -->
   <div class="popup-overlay" id="popupSocial">
     <div class="popup">
       <button class="close-btn" onclick="closeSocialPopup()">×</button>
       <h2>Seguici sui Social</h2>
       <div class="social-icons">
-        <a
-          href="https://www.instagram.com/pugliabilance/"
-          target="_blank"
-        >
-          <img
-            src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png"
-            alt="Instagram"
+        <a href="https://www.instagram.com/pugliabilance/" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" 
+            alt="Instagram Puglia Bilance" 
           />
         </a>
-        <a
-          href="https://www.facebook.com/pugliabilancesrls"
-          target="_blank"
-        >
-          <img
-            src="https://img.icons8.com/ios-filled/50/000000/facebook.png"
-            alt="Facebook"
+        <a href="https://www.facebook.com/pugliabilancesrls" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://img.icons8.com/ios-filled/50/000000/facebook.png" 
+            alt="Facebook Puglia Bilance" 
           />
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Popup Sede -->
+  <!-- POPUP SEDE -->
   <div class="popup-overlay" id="popupLocation">
     <div class="popup">
       <button class="close-btn" onclick="closeLocationPopup()">×</button>
       <h2>La Nostra Sede</h2>
-      <!-- Stato “Sede Capurso” dinamico con i nuovi orari (Sabato mezza giornata) -->
       <p>Sede Capurso: <span id="sedeStatus" class="closed">Caricamento...</span></p>
-
-      <a
-        href="https://www.google.it/maps/place/Puglia+Bilance/@41.0391411,16.9150603,17z/data=!3m1!4b1!4m6!3m5!1s0x1347c1e9ba5493d7:0xae9b51eae504782c!8m2!3d41.0391411!4d16.9176352!16s%2Fg%2F11h1jqbhvl?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
-        target="_blank"
+      <a 
+        href="https://www.google.it/maps/place/Puglia+Bilance/@41.0391411,16.9150603,17z/data=!3m1!4b1!4m6!3m5!1s0x1347c1e9ba5493d7:0xae9b51eae504782c!8m2!3d41.0391411!4d16.9176352!16s%2Fg%2F11h1jqbhvl?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" 
+        target="_blank" 
+        rel="noopener noreferrer"
       >
-        <img
-          src="https://img.icons8.com/ios-filled/50/000000/google-maps.png"
-          alt="Google Maps"
+        <img 
+          src="https://img.icons8.com/ios-filled/50/000000/google-maps.png" 
+          alt="Puglia Bilance - Sede su Google Maps" 
+          style="max-width: 80px;"
         />
       </a>
     </div>
   </div>
 
   <script>
-    /********************************************************************
-     * Funzione per calcolare la fascia oraria e aggiornare lo stato
-     * “Sede Capurso: Aperto / In chiusura / Chiuso” con 30 min prima di ogni 
-     * chiusura, ma con la differenza che il Sabato è aperto solo la mattina.
-     *
-     * Lun - Ven: 
-     *   06:30 - 12:30 => Aperto
-     *   12:30 - 13:00 => In chiusura
-     *   13:00 - 14:30 => Chiuso (pausa)
-     *   14:30 - 18:00 => Aperto
-     *   18:00 - 18:30 => In chiusura
-     *   Altri orari => Chiuso
-     *
-     * Sabato:
-     *   06:30 - 12:30 => Aperto
-     *   12:30 - 13:00 => In chiusura
-     *   Altri orari => Chiuso
-     *
-     * Domenica: chiuso tutto il giorno
-     ********************************************************************/
+    // IntersectionObserver per animazioni fade-in
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.style.animationDelay = '0s';
+            entry.target.classList.add('animate'); // la classe "animate" sblocca l'opacità
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // Bottone "Torna su" (Back to Top)
+    const btn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Popup generici (con overlay .show per far apparire la popup)
+    function openPopup() { document.getElementById("popupOverlay").classList.add("show"); }
+    function closePopup() { document.getElementById("popupOverlay").classList.remove("show"); }
+    function openAssistancePopup() { document.getElementById("popupAssistance").classList.add("show"); }
+    function closeAssistancePopup() { document.getElementById("popupAssistance").classList.remove("show"); }
+    function openUserReservedPopup() { document.getElementById("popupUserReserved").classList.add("show"); }
+    function closeUserReservedPopup() { document.getElementById("popupUserReserved").classList.remove("show"); }
+    function openSocialPopup() { document.getElementById("popupSocial").classList.add("show"); }
+    function closeSocialPopup() { document.getElementById("popupSocial").classList.remove("show"); }
+    function openLocationPopup() {
+      document.getElementById("popupLocation").classList.add("show");
+      updateSedeCapursoStatus();
+    }
+    function closeLocationPopup() {
+      document.getElementById("popupLocation").classList.remove("show");
+    }
+
+    // Filtro di ricerca (dimostrativo) su paragrafi e liste con data-keywords
+    const searchInput = document.getElementById('searchInput');
+    const filterItems = document.querySelectorAll('.filter-item');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const filterValue = searchInput.value.toLowerCase();
+        filterItems.forEach(item => {
+          const keywords = item.getAttribute('data-keywords').toLowerCase();
+          if (keywords.includes(filterValue)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Logica orari di apertura sede
     function updateSedeCapursoStatus() {
       let now = new Date();
-      let day = now.getDay();           // 0=Dom, 1=Lun, ... 6=Sab
+      let day = now.getDay(); // 0 = Domenica, 1 = Lunedì, ...
       let hour = now.getHours();
       let minute = now.getMinutes();
-      let timeDecimal = hour + minute / 60; // es: 6.5
+      let timeDecimal = hour + minute / 60;
 
       const statusEl = document.getElementById("sedeStatus");
       if (!statusEl) return;
 
-      // DOMENICA => chiuso
+      const isBetween = (val, min, max) => val >= min && val < max;
+
+      let openMorning = 6.5, 
+          closeMorning = 13.0, 
+          openAfternoon = 14.5, 
+          closeAfternoon = 18.5;
+      let preOpenOffset = 20 / 60, 
+          preCloseOffset = 15 / 60;
+
+      // Domenica
       if (day === 0) {
-        statusEl.textContent = "Chiuso (Domenica)";
+        statusEl.textContent = "Chiuso";
         statusEl.className = "closed";
         return;
       }
 
-      // LUN - VEN => (day=1..5)
+      // Lun-Ven
       if (day >= 1 && day <= 5) {
-        // < 6.5 => chiuso
-        if (timeDecimal < 6.5) {
+        if (timeDecimal < openMorning - preOpenOffset) {
           statusEl.textContent = "Chiuso";
           statusEl.className = "closed";
           return;
         }
-        // 06:30 - 12:30 => Aperto
-        if (timeDecimal < 12.5) {
+        if (isBetween(timeDecimal, openMorning - preOpenOffset, openMorning)) {
+          statusEl.textContent = "Apre tra poco";
+          statusEl.className = "opening-soon";
+          return;
+        }
+        if (isBetween(timeDecimal, openMorning, closeMorning - preCloseOffset)) {
           statusEl.textContent = "Aperto";
           statusEl.className = "open";
           return;
         }
-        // 12:30 - 13:00 => In chiusura
-        if (timeDecimal < 13) {
-          statusEl.textContent = "In chiusura";
-          statusEl.className = "closing-light";
+        if (isBetween(timeDecimal, closeMorning - preCloseOffset, closeMorning)) {
+          statusEl.textContent = "Chiude tra poco";
+          statusEl.className = "closing-soon";
           return;
         }
-        // 13:00 - 14.5 => Pausa pranzo => Chiuso
-        if (timeDecimal < 14.5) {
-          statusEl.textContent = "Chiuso (pausa pranzo)";
+        if (timeDecimal < openAfternoon - preOpenOffset) {
+          statusEl.textContent = "Chiuso";
           statusEl.className = "closed";
           return;
         }
-        // 14:30 - 18:00 => Aperto
-        if (timeDecimal < 18) {
+        if (isBetween(timeDecimal, openAfternoon - preOpenOffset, openAfternoon)) {
+          statusEl.textContent = "Apre tra poco";
+          statusEl.className = "opening-soon";
+          return;
+        }
+        if (isBetween(timeDecimal, openAfternoon, closeAfternoon - preCloseOffset)) {
           statusEl.textContent = "Aperto";
           statusEl.className = "open";
           return;
         }
-        // 18:00 - 18:30 => In chiusura
-        if (timeDecimal < 18.5) {
-          statusEl.textContent = "In chiusura";
-          statusEl.className = "closing-light";
+        if (isBetween(timeDecimal, closeAfternoon - preCloseOffset, closeAfternoon)) {
+          statusEl.textContent = "Chiude tra poco";
+          statusEl.className = "closing-soon";
           return;
         }
-        // >= 18.5 => chiuso
         statusEl.textContent = "Chiuso";
         statusEl.className = "closed";
         return;
       }
 
-      // SABATO => (day=6)
-      // < 6.5 => chiuso
-      if (timeDecimal < 6.5) {
+      // Sabato
+      if (day === 6) {
+        if (timeDecimal < openMorning - preOpenOffset) {
+          statusEl.textContent = "Chiuso";
+          statusEl.className = "closed";
+          return;
+        }
+        if (isBetween(timeDecimal, openMorning - preOpenOffset, openMorning)) {
+          statusEl.textContent = "Apre tra poco";
+          statusEl.className = "opening-soon";
+          return;
+        }
+        if (isBetween(timeDecimal, openMorning, closeMorning - preCloseOffset)) {
+          statusEl.textContent = "Aperto";
+          statusEl.className = "open";
+          return;
+        }
+        if (isBetween(timeDecimal, closeMorning - preCloseOffset, closeMorning)) {
+          statusEl.textContent = "Chiude tra poco";
+          statusEl.className = "closing-soon";
+          return;
+        }
         statusEl.textContent = "Chiuso";
         statusEl.className = "closed";
         return;
       }
-      // 06:30 - 12:30 => Aperto
-      if (timeDecimal < 12.5) {
-        statusEl.textContent = "Aperto (Sabato mattina)";
-        statusEl.className = "open";
-        return;
-      }
-      // 12:30 - 13:00 => In chiusura
-      if (timeDecimal < 13) {
-        statusEl.textContent = "In chiusura";
-        statusEl.className = "closing-light";
-        return;
-      }
-      // Dopo le 13 => chiuso
-      statusEl.textContent = "Chiuso";
-      statusEl.className = "closed";
-    }
-
-    /* Funzioni di apertura/chiusura popup */
-    function openPopup() {
-      document.getElementById("popupOverlay").style.display = "block";
-    }
-
-    function closePopup() {
-      document.getElementById("popupOverlay").style.display = "none";
-    }
-
-    function openAssistancePopup() {
-      document.getElementById("popupAssistance").style.display = "block";
-    }
-
-    function closeAssistancePopup() {
-      document.getElementById("popupAssistance").style.display = "none";
-    }
-
-    function openSocialPopup() {
-      document.getElementById("popupSocial").style.display = "block";
-    }
-
-    function closeSocialPopup() {
-      document.getElementById("popupSocial").style.display = "none";
-    }
-
-    /* Apertura popup sede: richiama updateSedeCapursoStatus() */
-    function openLocationPopup() {
-      document.getElementById("popupLocation").style.display = "block";
-      updateSedeCapursoStatus();
-    }
-
-    function closeLocationPopup() {
-      document.getElementById("popupLocation").style.display = "none";
     }
   </script>
 </body>

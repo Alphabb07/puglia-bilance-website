@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport per design responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- SEO Title -->
+  <title>Bilance Industriali e Nostre Realizzazioni - Puglia Bilance Capurso</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Realizziamo sistemi di pesatura industriale personalizzati per ogni esigenza. Scopri la nostra gamma di bilance industriali e le nostre realizzazioni innovative." />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="bilance industriali, pesatura industriale, realizzazioni, Puglia Bilance, sistemi di pesatura" />
+  <link rel="canonical" href="https://www.pugliabilancecapurso.com/bilance-industriali" />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Bilance Industriali e Nostre Realizzazioni - Puglia Bilance Capurso" />
+  <meta property="og:description" content="Scopri la nostra gamma di bilance industriali e le soluzioni personalizzate per la pesatura dei carichi industriali." />
+  <meta property="og:image" content="https://www.pugliabilancecapurso.com/path/to/og_image.jpg" />
+  <meta property="og:url" content="https://www.pugliabilancecapurso.com/bilance-industriali" />
+  <meta property="og:type" content="website" />
+  
+  <!-- JSON-LD per dati strutturati -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Puglia Bilance Capurso",
+    "url": "https://www.pugliabilancecapurso.com",
+    "logo": "https://www.pugliabilancecapurso.com/Main_logo.png",
+    "description": "Soluzioni personalizzate di pesatura industriale per cantieri e impianti in Puglia.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Esempio 123",
+      "addressLocality": "Capurso",
+      "addressRegion": "Puglia",
+      "postalCode": "70010",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Animazione Fade In */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    /* Effetto onda animata */
+    @keyframes wave {
+      0% { transform: translateX(-50%) skewY(15deg); }
+      50% { transform: translateX(0) skewY(15deg); }
+      100% { transform: translateX(-50%) skewY(15deg); }
+    }
+    
+    /* Stili Generali */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* HEADER con gradiente e wave effect */
+    header {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 80%;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%) skewY(15deg);
+      animation: wave 8s infinite linear;
+      z-index: 0;
+    }
+    .header-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1; /* Sopra l'effetto wave */
+    }
+    .header-logo {
+      margin-bottom: 10px;
+    }
+    .header-logo img {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    header .page-title {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    header .page-subtitle {
+      font-size: 1rem;
+      margin: 5px 0 0;
+    }
+    
+    /* CONTAINER PRINCIPALE */
+    .container {
+      flex: 1 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* DESCRIZIONE GENERALE */
+    .general-description {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      text-align: center;
+      /* Stato iniziale per animazione */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .general-description h2 {
+      font-size: 1.6rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+    .general-description p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #666;
+    }
+    
+    /* GALLERIA IMMAGINI */
+    .gallery-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      /* Stato iniziale per animazione */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;  /* Altezza fissa per coerenza */
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* FOOTER */
+    footer {
+      flex: 0 0 auto;
+      background-color: #0056b3;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    footer p {
+      font-size: 0.85rem;
+      margin: 5px 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .page-title {
+        font-size: 1.4rem;
+      }
+      header .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .header-logo img {
+        max-width: 140px;
+      }
+      .general-description h2 {
+        font-size: 1.4rem;
+      }
+      .general-description p {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+      .general-description {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="fade-in">
+    <div class="header-content">
+      <div class="header-logo">
+        <a href="home_catalogo.html">
+          <img src="Main_logo.png" alt="Puglia Bilance - Home" loading="lazy">
+        </a>
+      </div>
+      <h1 class="page-title">Bilance Industriali e Nostre Realizzazioni</h1>
+      <p class="page-subtitle">Le soluzioni ideali per la pesatura dei carichi industriali</p>
+    </div>
+  </header>
+  
+  <!-- CONTENUTO PRINCIPALE -->
+  <div class="container">
+    <!-- Sezione: Bilance Industriali e Nostre Realizzazioni -->
+    <div class="general-description">
+      <h2>La Nostra Gamma di Bilance Industriali</h2>
+      <p>
+        Realizziamo sistemi di pesatura industriale totalmente personalizzati per ogni esigenza ed applicazione. Piattaforme di pesatura di qualsiasi portata, dimensione e risoluzione, integrabili con dispositivi esterni per una gestione e controllo avanzato: PC, PLC, microcontrollori e molto altro. Offriamo un’ampia gamma di moduli di interfaccia, inclusi segnali 4-20 mA e bus di campo, per garantire soluzioni complete e integrate.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      <!-- Immagini per Bilance Industriali e Realizzazioni -->
+      <div class="gallery-item">
+        <img src="industriale_4.jpg" alt="Bilancia Industriale - Progetto 3" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="insdustriale_7.png" alt="Bilancia Industriale - Progetto 4" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="industriale_5.png" alt="Bilancia Industriale - Progetto 5" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="industriale_6.png" alt="Bilancia Industriale - Progetto 6" loading="lazy">
+      </div>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Puglia Bilance Capurso. Tutti i diritti riservati.</p>
+    <p>Sito ideato, progettato e sviluppato da Antonio Abbinante</p>
+  </footer>
+  
+  <!-- Script per animare gli elementi al momento in cui entrano in viewport -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.general-description, .gallery-item, header, footer');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
